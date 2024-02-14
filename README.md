@@ -1,7 +1,23 @@
 # sk_06
 
-DB　テーブル設計
+## 必読
 
+Flaskアプリ`sk_app`のサーバを起動する際は`sk_06`がカレントディレクトリであることを確認したうえで、`python run.py`を実行してください。\
+htmlでページを追加する際は、`templates/base.html`を必ず適用するようにしてください。\
+\
+例）sample.htmlの場合
+```
+<!-- base.htmlの適用 -->
+{% extends "base.html" %}
+
+<!-- ページタイトルの設定 -->
+{% block title %}タイトル{% endblock %}
+
+<!-- メインコンテンツ -->
+{% block content %}
+    <h1>ページ見出し</h1>
+{% endblock %}
+```
 
 ## メンバー
 
