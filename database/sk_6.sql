@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2024-02-11 08:06:48
+-- 生成日時: 2024-02-14 02:52:44
 -- サーバのバージョン： 10.4.32-MariaDB
 -- PHP のバージョン: 8.2.12
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- データベース: `sk_6`
 --
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` char(8) NOT NULL COMMENT '管理者ID',
+  `name` varchar(20) NOT NULL COMMENT '管理者名',
+  `email` varchar(50) NOT NULL COMMENT 'メールアドレス',
+  `password` varchar(100) NOT NULL COMMENT 'パスワード',
+  `created_at` datetime NOT NULL DEFAULT current_timestamp() COMMENT '作成日時',
+  `updated_at` datetime DEFAULT NULL COMMENT '更新日時',
+  `deleted_at` datetime DEFAULT NULL COMMENT '削除日時'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- テーブルのデータのダンプ `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`, `deleted_at`) VALUES
+('AD102495', 'admin', 'admin@gmail.com', 'password', '2024-02-14 10:51:38', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -95,6 +118,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`, `updated_a
 --
 -- ダンプしたテーブルのインデックス
 --
+
+--
+-- テーブルのインデックス `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- テーブルのインデックス `devices`
