@@ -19,12 +19,11 @@ htmlでページを追加する際は、`templates/base.html`を必ず適用す�
 {% endblock %}
 ```
 
-## envフォルダの作成
-C:\work\group\sk_06にて現在envフォルダを用いて開発しています。（後々変わる可能性あり）
+## Flaskの環境
+AnacondaのFlaskにて動かします。
 \
-virtualenvのインストールなど詳細はnotionにて
+詳細は後ほどgithubまたはNotionにてお伝えします
 \
-
 ## メンバー
 
 | メンバー名 | Name1      | Name2        |
