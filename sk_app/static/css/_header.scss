@@ -1,0 +1,25 @@
+@use "_variable.scss" as *;
+header{
+    #headWrapper{
+        background-color: $headerBg;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0px;
+        #headIcon{
+            padding: 1%;
+            margin: 1%;
+
+        }
+        #headUser{
+            padding: 1%;
+            border: solid 1px #ffffff;
+            margin: 1%;
+            p{
+                color: #ffffff;
+            }
+        }
+    }
+}
