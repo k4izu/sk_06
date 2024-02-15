@@ -20,9 +20,10 @@ htmlでページを追加する際は、`templates/base.html`を必ず適用す�
 ```
 
 ## envフォルダの作成
-C:\work\group\sk_06にて現在envフォルダを作成しています。（後々変わる可能性あり）
-詳細はnotionにて
-
+C:\work\group\sk_06にて現在envフォルダを用いて開発しています。（後々変わる可能性あり）
+\
+virtualenvのインストールなど詳細はnotionにて
+\
 
 ## メンバー
 
