@@ -22,8 +22,9 @@ htmlでページを追加する際は、`templates/base.html`を必ず適用す�
 ## Flaskの環境
 AnacondaのFlaskにて動かします。
 \
-詳細は後ほどgithubまたはNotionにてお伝えします
+開発は現状「C:\work\group\sk_06」で行っています。
 \
+
 ## メンバー
 
 | メンバー名 | Name1      | Name2        |
