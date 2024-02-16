@@ -1,5 +1,4 @@
 from sk_app.apps import app
-from flask import render_template
 
 # ===================================================
 # ======    外部モジュール取込
@@ -20,4 +19,3 @@ app.register_blueprint(admin_view)
 # ===== エンドポイント指定  ('/test')
 #====================================================
 app.register_blueprint(test_view)
-
