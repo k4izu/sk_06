@@ -49,3 +49,7 @@ header{
         }
     }
 }
+main{
+    margin-top: $headerHeight;
+    margin-left: $tabWidth;
+}

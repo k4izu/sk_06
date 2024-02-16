@@ -48,4 +48,9 @@ header #header #headUser p {
 }
 #tabWrapper .tabBox .tabText p {
   font-size: 1.8rem;
+}
+
+main {
+  margin-top: 12vh;
+  margin-left: 12vw;
 }/*# sourceMappingURL=style.css.map */
