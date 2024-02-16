@@ -11,6 +11,7 @@ header{
         position: fixed;
         top: 0px;
         height: $headerHeight;
+        width: 100%;
         #headIcon{
             padding: 1%;
             margin: 1%;
@@ -21,7 +22,6 @@ header{
             margin: 1%;
             p{
                 color: #ffffff;
-
             }
         }
     }
@@ -32,8 +32,6 @@ header{
     height: 90vh;
     background-color: $tabBg;
     width: $tabWidth;
-    // border-left: $borderBlack;
-    // border-right: $borderBlack;
     border: $borderBlack;
     .tabBox{
         display: flex;
@@ -50,6 +48,6 @@ header{
     }
 }
 main{
-    margin-top: $headerHeight;
-    margin-left: $tabWidth;
+    margin: $headerHeight 0 0 $tabWidth;
+    overflow: hidden;
 }

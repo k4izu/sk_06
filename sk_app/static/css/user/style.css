@@ -4,6 +4,18 @@ html {
 }
 
 body {
+  font-size: 1.4rem;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.7em;
+}
+
+h3 {
   font-size: 1.5rem;
 }
 
@@ -16,6 +28,7 @@ header #header {
   position: fixed;
   top: 0px;
   height: 12vh;
+  width: 100%;
 }
 header #header #headIcon {
   padding: 1%;
@@ -47,10 +60,28 @@ header #header #headUser p {
   height: 8vh;
 }
 #tabWrapper .tabBox .tabText p {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 main {
-  margin-top: 12vh;
-  margin-left: 12vw;
+  margin: 12vh 0 0 12vw;
+  overflow: hidden;
+}
+
+#homeWrapper {
+  margin: 2%;
+  overflow: hidden;
+}
+#homeWrapper .homeTitle {
+  margin: 1%;
+}
+#homeWrapper .homeMain .homeInfo {
+  margin: 3%;
+  border-collapse: collapse;
+}
+#homeWrapper .homeMain .homeInfo .homeInfoBox {
+  border: solid 1px #000000;
+}
+#homeWrapper .homeMain .homeInfo .homeInfoBox .homeInfoTitle {
+  border-bottom: solid 1px #000000;
 }/*# sourceMappingURL=style.css.map */

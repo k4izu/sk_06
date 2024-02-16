@@ -1,0 +1,26 @@
+@use "_variable.scss" as *;
+#homeWrapper{
+    margin: 2%;
+    overflow: hidden;
+    .homeTitle{
+        margin: 1%;
+        h2{
+            
+        }
+    }
+    .homeMain{
+        .homeInfo{
+            margin: 3%;
+            border-collapse: collapse;
+            .homeInfoBox{
+                border: $borderBlack;
+                .homeInfoTitle{
+                    border-bottom: $borderBlack;
+                }
+                .homeInfoTxt{
+
+                }
+            }
+        }
+    }
+}
