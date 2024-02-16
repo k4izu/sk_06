@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/destyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user/style.css') }}">
+</head>
+<body>
+    <header>
+        <div id="header">
+            <div id="headIcon">
+                <h1>アイコン</h1>
+            </div>
+            <div id="headUser">
+                <p>ユーザー名</p>
+            </div>
+        </div>
+    </header>
+    <div id="tabWrapper">
+        <div class="tabBox">
+            <div class="tabText">
+                <p>ホーム</p>
+            </div>
+        </div>
+        <div class="tabBox">
+            <div class="tabText">
+                <p>3Dモデル</p>
+            </div>
+        </div>
+        <div class="tabBox">
+            <div class="tabText">
+                <p>投影</p>
+            </div>
+        </div>
+        <div class="tabBox">
+            <div class="tabText">
+                <p>設定</p>
+            </div>
+        </div>
+        <div class="tabBox">
+            <div class="tabText">
+                <p>操作ガイド</p>
+            </div>
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>
