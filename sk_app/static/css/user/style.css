@@ -1,0 +1,51 @@
+html {
+  font-family: sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.5rem;
+}
+
+header #header {
+  background-color: #768459;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  height: 12vh;
+}
+header #header #headIcon {
+  padding: 1%;
+  margin: 1%;
+}
+header #header #headUser {
+  padding: 1%;
+  border: solid 1px #ffffff;
+  margin: 1%;
+}
+header #header #headUser p {
+  color: #ffffff;
+}
+
+#tabWrapper {
+  position: fixed;
+  top: 12vh;
+  height: 90vh;
+  background-color: #8F8460;
+  width: 12vw;
+  border: solid 1px #000000;
+}
+#tabWrapper .tabBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: solid 1px #000000;
+  margin: 1%;
+  height: 8vh;
+}
+#tabWrapper .tabBox .tabText p {
+  font-size: 1.8rem;
+}/*# sourceMappingURL=style.css.map */
