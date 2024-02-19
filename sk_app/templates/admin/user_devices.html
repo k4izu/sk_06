@@ -1,0 +1,62 @@
+<!-- base.htmlの適用 -->
+{% extends "base_admin.html" %}
+
+<!-- ページタイトルの設定 -->
+{% block title %}admin index{% endblock %}
+
+<!-- メインコンテンツ -->
+{% block content %}
+    <h1>This is 3ddevices_database</h1>
+
+    <h3>絞り込み</h3>
+
+    <form action="/user_devices" method="get">
+        <table>
+            <tr>
+                <td>デバイスIDで絞り込む</td>
+                <td><input type="text" name="device_id"></td>
+            </tr>
+            <tr>
+                <td>ユーザIDで絞り込む</td>
+                <td><input type="text" name="user_id"></td>
+            </tr>
+            <tr>
+                <td>デバイス名で絞り込む</td>
+                <td><input type="text" name="device_name"></td>
+            </tr>
+            <tr>
+                <td>作成日で絞り込む</td>
+                <td><input type="text" name="create"></td>
+            </tr>
+            <tr>
+                <td>更新日で絞り込む</td>
+                <td><input type="text" name="re_device"></td>
+            </tr>
+            <tr>
+                <td>削除日で絞り込む</td>
+                <td><input type="text" name="del_device"></td>
+            </tr>
+        </table>
+        <br>
+        <p>hoverで上下矢印切り替え</p>
+    </form>
+
+    <table>
+        <tr>
+            <th>ユーザID</th>
+            <th>ユーザ名</th>
+            <th>メールアドレス</th>
+            <th>登録日</th>
+            <th>更新日時</th>
+            <th>削除日時</th>
+        </tr>
+        <tr>
+            <td>{{ .id }}</td>
+            <td>{{ .name }}</td>
+            <td>{{ .mail }}</td>
+            <td>{{ .re_data }}</td>
+            <td>{{ .change }}</td>
+            <td>{{ .del }}</td>
+        </tr>
+    </table>
+{% endblock %}
