@@ -1,0 +1,55 @@
+@use "_variable.scss" as *;
+
+header{
+    #header{
+        background-color: $headerBg;
+        // border: $borderBlack;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0px;
+        height: $headerHeight;
+        #headIcon{
+            padding: 1%;
+            margin: 1%;
+        }
+        #headUser{
+            padding: 1%;
+            border: solid 1px #ffffff;
+            margin: 1%;
+            p{
+                color: #ffffff;
+
+            }
+        }
+    }
+}
+#tabWrapper{
+    position: fixed;
+    top: $headerHeight;
+    height: 90vh;
+    background-color: $tabBg;
+    width: $tabWidth;
+    // border-left: $borderBlack;
+    // border-right: $borderBlack;
+    border: $borderBlack;
+    .tabBox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: $borderBlack;
+        margin: 1%;
+        height: 8vh;
+        .tabText{
+            p{
+                font-size: $tabFsize;
+            }
+        }
+    }
+}
+main{
+    margin-top: $headerHeight;
+    margin-left: $tabWidth;
+}

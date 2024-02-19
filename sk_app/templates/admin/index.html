@@ -6,52 +6,50 @@
 
 <!-- メインコンテンツ -->
 {% block content %}
-    <h1>This is admin index</h1>
+<h1>This is admin index</h1>
     
-    <main>
-        <div class="right">
-            <div class="mail">
-                <h3>問い合わせメール受信数：</h3>
-                <p>件の問い合わせメールが届いています。</p>
-            </div>
+<div class="main">
+    <div class="mail">
+        <h3>問い合わせメール受信数：</h3>
+        <p>件の問い合わせメールが届いています。</p>
+    </div>
 
-            <div class="info">
-                <h3>内容</h3>
-                <form action="" method="post">
-                    <table>
-                        <tr>
-                            <td><input type="radio" name="sales_time" id="time">営業時間関係</td>
-                            <td><input type="radio" name="update" id="update">ホームページ更新</td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" name="add" id="add">機能追加</td>
-                            <td><input type="radio" name="change" id="change">機能変更</td>
-                            <td><input type="radio" name="del" id="del">機能削除</td>
-                        </tr>
-                    </table>
+    <div class="info">
+        <h3>内容</h3>
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td><input type="radio" name="sales_time" id="time">営業時間関係</td>
+                    <td><input type="radio" name="update" id="update">ホームページ更新</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="add" id="add">機能追加</td>
+                    <td><input type="radio" name="change" id="change">機能変更</td>
+                    <td><input type="radio" name="del" id="del">機能削除</td>
+                </tr>
+            </table>
                     
-                    <h3>その他</h3>
-                    <input type="text" name="others" id="text">
+            <p>その他</p>
+            <input type="text" name="others" id="text">
 
-                    <h3>お知らせ履歴の保存名</h3>
-                    <input type="text" name="save" id="save">
+            <p>お知らせ履歴の保存名</p>
+            <input type="text" name="save" id="save">
 
-                    <input type="submit" value="投稿">
-                </form>
-            </div>
+            <input type="submit" value="投稿">
+        </form>
+    </div>
 
-            <div class="info_his">
-                <h2>お知らせ変更履歴</h2>
+    <div class="info_his">
+        <h2>お知らせ変更履歴</h2>
 
-                <div class="data">
-                    <table>
-                        <tr>
-                            <td><!-- 保存した年・月・日を入れる -->テスト</td>
-                            <td><!-- ここにラジオボタンまたはその他に記入したテキストを挿入 ＋ を投稿しました。 -->テスト</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+        <div class="data">
+            <table>
+                <tr>
+                    <td><!-- 保存した年・月・日を入れる -->テスト</td>
+                    <td><!-- ここにラジオボタンまたはその他に記入したテキストを挿入 ＋ を投稿しました。 -->テスト</td>
+                </tr>
+            </table>
         </div>
-    </main>
+    </div>
+</div>
 {% endblock %}
