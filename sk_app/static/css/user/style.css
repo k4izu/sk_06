@@ -63,9 +63,25 @@ header #header #headUser p {
   font-size: 1.6rem;
 }
 
+main:has(#loginWrapper, #signupWrapper) {
+  margin: 12vh 0 0 0;
+}
+
 main {
   margin: 12vh 0 0 12vw;
   overflow: hidden;
+}
+
+.errMsg {
+  color: #ff0000;
+}
+
+#loginWrapper {
+  margin: 3% 20%;
+}
+#loginWrapper input {
+  display: block;
+  border: solid 1px #000000;
 }
 
 #homeWrapper {
@@ -77,11 +93,22 @@ main {
 }
 #homeWrapper .homeMain .homeInfo {
   margin: 3%;
-  border-collapse: collapse;
 }
 #homeWrapper .homeMain .homeInfo .homeInfoBox {
   border: solid 1px #000000;
+  position: relative;
 }
 #homeWrapper .homeMain .homeInfo .homeInfoBox .homeInfoTitle {
   border-bottom: solid 1px #000000;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  padding-left: 1%;
+}
+#homeWrapper .homeMain .homeInfo .homeInfoBox .homeInfoText {
+  height: 15vh;
+  padding-left: 2%;
+}
+#homeWrapper .homeMain .homeInfo .homeInfoBox:nth-child(2) {
+  margin-top: -1px;
 }/*# sourceMappingURL=style.css.map */

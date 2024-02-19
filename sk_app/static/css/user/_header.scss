@@ -47,7 +47,14 @@ header{
         }
     }
 }
+// 他共通css
+main:has(#loginWrapper,#signupWrapper){
+    margin: $headerHeight 0 0 0;
+}
 main{
     margin: $headerHeight 0 0 $tabWidth;
     overflow: hidden;
+}
+.errMsg{
+    color: $red;
 }
