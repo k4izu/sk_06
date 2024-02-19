@@ -1,1 +1,46 @@
 @use "_variable.scss" as *;
+
+
+.mail{
+    h3{
+        font-size: 3rem;
+    }
+    p{
+        padding-top: 15px;
+        font-size: 2.5rem;
+    }
+}
+
+.info{
+    margin-top: 30px;
+    background-color: gainsboro;
+    width: 80%;
+    h3{
+        font-size: 3rem;
+        padding: 15px;
+    }
+    td{
+        font-size: 2rem;
+        padding: 20px;
+    }
+    p{
+        font-size: rem;
+    }
+    
+    #save,#text{
+        background-color: white;
+        margin: 20px;
+    }
+}
+.info_his{
+    margin: 40px;
+    h2{
+        font-size: 3rem;
+        padding-bottom: 20px;
+    }
+    .data{
+        #time{
+            font-size: 20px;
+        }
+    }
+}
