@@ -3,7 +3,7 @@
 ## 必読
 
 Flaskアプリ`sk_app`のサーバを起動する際は`sk_06`がカレントディレクトリであることを確認したうえで、`python run.py`を実行してください。\
-htmlでページを追加する際は、`以下を適用してください。\
+htmlでページを追加する際は、以下を適用してください。\
 userの場合、`templates/base_user.html`\
 adminの場合、`templates/base_admin.html`\
 \
