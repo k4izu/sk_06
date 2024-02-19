@@ -11,7 +11,6 @@ header{
         position: fixed;
         top: 0px;
         height: $headerHeight;
-        width: 100%;
         #headIcon{
             padding: 1%;
             margin: 1%;
@@ -22,6 +21,18 @@ header{
             margin: 1%;
             p{
                 color: #ffffff;
+            }
+        }
+        #headBox{
+            display: flex;
+            justify-content: space-between;
+            color: #ffffff;
+            width: 15vw;
+            margin: 1%;
+            form{
+                button{
+                    min-width: 100%;
+                }
             }
         }
     }

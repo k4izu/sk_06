@@ -13,6 +13,7 @@ err_msg={}
 # 入力データ
 login_form={}
 signup_form={}
+reset_form={}
 
 # ==========================================================
 #   ログイン                ("/")
@@ -98,3 +99,19 @@ def signup_check():
         return render_template(user+"signup.html",err_msg=err_msg, signup_form=signup_form)
     # ===== 登録完了ページ"signup_comp.html"へ
     return render_template(user+"signup_comp.html",signup_form=signup_form)
+
+
+# ==========================================================
+#   パスワード再設定              ('/login/reset/password')
+# ==========================================================
+@app.route("/login/reset/password", methods=["get"])
+def reset_password():
+    return render_template(user+"reset_password.html",err_msg=err_msg,reset_form=reset_form)
+
+
+# ==========================================================
+#   パスワード再設定完了          ('/login/reset/password/comp')
+# ==========================================================
+@app.route("/login/reset/password/comp", methods=["get"])
+def reset_password_comp():
+    return render_template(user+"reset_password_comp.html",err_msg=err_msg,reset_form=reset_form)

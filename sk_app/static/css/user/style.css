@@ -28,7 +28,6 @@ header #header {
   position: fixed;
   top: 0px;
   height: 12vh;
-  width: 100%;
 }
 header #header #headIcon {
   padding: 1%;
@@ -41,6 +40,16 @@ header #header #headUser {
 }
 header #header #headUser p {
   color: #ffffff;
+}
+header #header #headBox {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+  width: 15vw;
+  margin: 1%;
+}
+header #header #headBox form button {
+  min-width: 100%;
 }
 
 #tabWrapper {
