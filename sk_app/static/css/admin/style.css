@@ -27,6 +27,7 @@ header #header {
   align-items: center;
   position: fixed;
   top: 0px;
+  bottom: 20px;
   height: 12vh;
 }
 header #header #headIcon {
@@ -67,8 +68,17 @@ main {
   margin-left: 12vw;
 }
 
+.main {
+  top: 50px;
+  text-align: center;
+}
+
+.mail {
+  margin: 70px;
+}
 .mail h3 {
   font-size: 3rem;
+  padding: 40px;
 }
 .mail p {
   padding-top: 15px;
@@ -76,33 +86,96 @@ main {
 }
 
 .info {
+  padding: 20px;
   margin-top: 30px;
+  margin-left: 8%;
   background-color: gainsboro;
   width: 80%;
 }
 .info h3 {
   font-size: 3rem;
-  padding: 15px;
+  padding: 30px;
 }
-.info td {
+.info .label label {
   font-size: 2rem;
-  padding: 20px;
+  margin: 40px;
+}
+.info .label label input[type=radio] {
+  -webkit-appearance: revert;
+     -moz-appearance: revert;
+          appearance: revert;
 }
 .info p {
-  font-size: rem;
+  padding-top: 30px;
+  font-size: 2.5rem;
+}
+.info .info_text {
+  margin-top: 35px;
+}
+.info .info_text #info_text {
+  background-color: #fff;
 }
 .info #save, .info #text {
   background-color: white;
   margin: 20px;
 }
+.info input[type=submit] {
+  margin: 30px;
+  size: 20px;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  background-color: #FFF;
+  border-radius: 10px;
+}
 
 .info_his {
-  margin: 40px;
+  margin-top: 60px;
+  margin-bottom: 20%;
 }
 .info_his h2 {
   font-size: 3rem;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
-.info_his .data #time {
-  font-size: 20px;
+.info_his .data {
+  display: flex;
+  margin-left: 30%;
+}
+.info_his .data a {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  color: #333;
+  border-top: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  padding: 20px 20px;
+  text-decoration: none;
+  block-size: border-box;
+}
+.info_his .data a .data {
+  min-width: 140px;
+  font-size: 16px;
+  color: #999;
+  padding: 0 20px 0 0;
+}
+.info_his .data a .category {
+  margin: 0;
+  min-width: 140px;
+  padding: 0 20px 0 0;
+}
+.info_his .data a title {
+  background: #999;
+  color: #FFF;
+  text-align: center;
+  display: inline-block;
+  padding: 5px 20px;
+  font-size: 12px;
+  line-height: 1;
+}
+.info_his .data p {
+  font-size: 2rem;
+}
+.info_his .data p .save {
+  border-left: 1.5px solid #000;
+  padding: 40px;
 }/*# sourceMappingURL=style.css.map */

@@ -1,9 +1,15 @@
 @use "_variable.scss" as *;
 
+.main{
+    top: 50px;
+    text-align: center;
+}
 
 .mail{
+    margin: 70px;
     h3{
         font-size: 3rem;
+        padding: 40px;
     }
     p{
         padding-top: 15px;
@@ -12,35 +18,95 @@
 }
 
 .info{
+    padding: 20px;
     margin-top: 30px;
+    margin-left: 8%;
     background-color: gainsboro;
     width: 80%;
     h3{
         font-size: 3rem;
-        padding: 15px;
+        padding: 30px;
     }
-    td{
-        font-size: 2rem;
-        padding: 20px;
+    .label{
+        label{
+            font-size: 2rem;
+            margin: 40px;
+            input[type="radio"]{
+                appearance: revert;
+            }
+        }
     }
     p{
-        font-size: rem;
+        padding-top: 30px;
+        font-size: 2.5rem;
     }
-    
+    .info_text{
+        margin-top: 35px;
+        #info_text{
+            background-color: #fff;
+        }
+    }
     #save,#text{
         background-color: white;
         margin: 20px;
     }
+    input[type="submit"]{
+        margin: 30px;
+        size: 20px;
+        font-size: 1.5rem;
+        padding: 10px 15px;
+        background-color: #FFF;
+        border-radius: 10px;
+    }
 }
 .info_his{
-    margin: 40px;
+    margin-top: 60px;
+    margin-bottom: 20%;
     h2{
         font-size: 3rem;
-        padding-bottom: 20px;
+        padding-bottom: 40px;
     }
     .data{
-        #time{
-            font-size: 20px;
+        display: flex;
+        margin-left: 30%;
+        a{
+            display: flex;
+            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            text-decoration: none;
+            color: #333;
+            border-top: 1px solid #CCC;
+            border-bottom: 1px solid #CCC;
+            padding: 20px 20px;
+            text-decoration: none;
+            block-size: border-box;
+            .data{
+                min-width: 140px;
+                font-size: 16px;
+                color: #999;
+                padding: 0 20px 0 0;
+            }
+            .category{
+                margin: 0;
+                min-width: 140px;
+                padding: 0 20px 0 0;
+            }
+            title{
+                background: #999;
+                color: #FFF;
+                text-align: center;
+                display: inline-block;
+                padding: 5px 20px;
+                font-size: 12px;
+                line-height: 1;
+            }
+        }
+        p{
+            font-size: 2rem;
+            .save{
+                border-left: 1.5px solid #000;
+                padding: 40px;
+            }
         }
     }
 }

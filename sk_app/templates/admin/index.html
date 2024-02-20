@@ -15,26 +15,29 @@
     </div>
 
     <div class="info">
-        <h3>内容</h3>
+        
+        <h3>お知らせする種類</h3>
+        
         <form action="" method="post">
-            <table>
-                <tr>
-                    <td><input type="radio" name="sales_time" id="time">営業時間関係</td>
-                    <td><input type="radio" name="update" id="update">ホームページ更新</td>
-                </tr>
-                <tr>
-                    <td><input type="radio" name="add" id="add">機能追加</td>
-                    <td><input type="radio" name="change" id="change">機能変更</td>
-                    <td><input type="radio" name="del" id="del">機能削除</td>
-                </tr>
-            </table>
-                    
-            <p>その他</p>
-            <input type="text" name="others" id="text">
-
-            <p>お知らせ履歴の保存名</p>
-            <input type="text" name="save" id="save">
             
+            <div class="label">
+        
+                <label><input type="radio" name="time" id="time">営業時間関係</label>
+                <label for=""><input type="radio" name="update" id="update">ホームページ更新</label><br>
+                <label for=""><input type="radio" name="add" id="add">機能追加</label>
+                <label for=""><input type="radio" name="change" id="change">機能変更</label>
+                <label for=""><input type="radio" name="del" id="del">機能削除</label>
+                <br>
+                <label>その他：<input type="text" name="others" id="text"></label>
+            </div>
+            
+            <div class="info_text">
+                <p>本文</p><br>
+                <textarea name="info_text" id="info_text" cols="80" rows="20"></textarea>
+            </div>
+
+            <p>お知らせ履歴の保存名：<input type="text" name="save" id="save"></p>
+            <br>
             <input type="submit" value="投稿">
         </form>
     </div>
@@ -43,8 +46,11 @@
         <h2>お知らせ変更履歴</h2>
 
         <div class="data">
-            <p id="time"><!-- 保存した年・月・日を入れる -->テスト</p>
-            <p id="info"><!-- ここにラジオボタンまたはその他に記入したテキストを挿入 ＋ を投稿しました。 -->テスト</p>
+            <a href="#">
+                <p class="date">time_test</p>
+                <p class="category"><span>labeltest</span></p>
+                <p class="title">ここにお知らせが入ります</p>
+            </a>
         </div>
     </div>
 </div>
