@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin_login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/destyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/style.css') }}">
+</head>
+<body>
+    <header>
+        <div id="header">
+            <div id="headIcon">
+                <h1>アイコン</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <form action="/index.html" method="get">
+            <table>
+                <tr>
+                    <td>管理者ID</td>
+                    <td><input type="text" name="id"></td>
+                </tr>
+                <tr>
+                    <td>パスワード</td>
+                    <td><input type="password" name="pass"></td>
+                </tr>
+            </table>
+            
+            <hr>
+
+            <input type="submit" name="rogin" value="ログイン">
+        </form>
+    </main>
+</body>
+</html>
