@@ -1,0 +1,41 @@
+@use "_variable.scss" as *;
+
+header{
+    #header{
+        background-color: $headerBg;
+        // border: $borderBlack;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0px;
+        bottom: 20px;
+        height: $headerHeight;
+        #headIcon{
+            padding: 1%;
+            margin: 1%;
+        }
+        #headUser{
+            padding: 1%;
+            border: solid 1px #ffffff;
+            margin: 1%;
+            p{
+                color: #ffffff;
+
+            }
+        }
+    }
+}
+
+main{
+    width: 80%;
+    text-align: center;
+    font-size: 3rem;
+    table{
+        tr{
+            margin: 40px;
+    
+        }
+    }
+}

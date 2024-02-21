@@ -5,4 +5,146 @@ html {
 
 body {
   font-size: 1.5rem;
+}
+
+header #header {
+  background-color: #768459;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  bottom: 20px;
+  height: 12vh;
+}
+header #header #headIcon {
+  padding: 1%;
+  margin: 1%;
+}
+header #header #headUser {
+  padding: 1%;
+  border: solid 1px #ffffff;
+  margin: 1%;
+}
+header #header #headUser p {
+  color: #ffffff;
+}
+
+#tabWrapper {
+  position: fixed;
+  top: 12vh;
+  height: 90vh;
+  background-color: #8F8460;
+  width: 12vw;
+  border: solid 1px #000000;
+}
+#tabWrapper .tabBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: solid 1px #000000;
+  margin: 1%;
+  height: 8vh;
+}
+#tabWrapper .tabBox .tabText p {
+  font-size: 1.8rem;
+}
+
+main {
+  margin-top: 12vh;
+  margin-left: 12vw;
+}
+
+.main {
+  top: 50px;
+  text-align: center;
+}
+
+.mail {
+  margin: 70px;
+}
+.mail h3 {
+  font-size: 3rem;
+  padding: 40px;
+}
+.mail p {
+  padding-top: 15px;
+  font-size: 2.5rem;
+}
+
+.info {
+  padding: 20px;
+  margin-top: 30px;
+  margin-left: 8%;
+  background-color: gainsboro;
+  width: 80%;
+}
+.info h3 {
+  font-size: 3rem;
+  padding: 30px;
+}
+.info .label label {
+  font-size: 2rem;
+  margin: 40px;
+}
+.info .label label input[type=radio] {
+  -webkit-appearance: revert;
+     -moz-appearance: revert;
+          appearance: revert;
+}
+.info p {
+  padding-top: 30px;
+  font-size: 2.5rem;
+}
+.info .info_text {
+  margin-top: 35px;
+}
+.info .info_text #info_text {
+  background-color: #fff;
+}
+.info #save, .info #text {
+  background-color: white;
+  margin: 20px;
+}
+.info input[type=submit] {
+  margin: 30px;
+  size: 20px;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  background-color: #FFF;
+  border-radius: 10px;
+}
+
+header #header {
+  background-color: #768459;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  bottom: 20px;
+  height: 12vh;
+}
+header #header #headIcon {
+  padding: 1%;
+  margin: 1%;
+}
+header #header #headUser {
+  padding: 1%;
+  border: solid 1px #ffffff;
+  margin: 1%;
+}
+header #header #headUser p {
+  color: #ffffff;
+}
+
+main {
+  width: 80%;
+  text-align: center;
+  font-size: 3rem;
+}
+main table tr {
+  margin: 40px;
 }/*# sourceMappingURL=style.css.map */
