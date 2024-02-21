@@ -10,3 +10,7 @@ admin = "admin/"
 @app.route("/admin")
 def admin_index():
     return render_template(admin + "index.html")
+
+@app.route('/adminlogin')
+def login():
+    return render_template(admin + 'login.html')

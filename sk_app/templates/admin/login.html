@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin_login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/destyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/style.css') }}">
 </head>
 <body>
     <header>
-        <h1>aikon</h1>
+        <div id="header">
+            <div id="headIcon">
+                <h1>アイコン</h1>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -19,7 +25,7 @@
                 </tr>
                 <tr>
                     <td>パスワード</td>
-                    <td><input type="text" name="pass"></td>
+                    <td><input type="password" name="pass"></td>
                 </tr>
             </table>
             

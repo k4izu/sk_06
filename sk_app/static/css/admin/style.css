@@ -128,54 +128,35 @@ main {
   border-radius: 10px;
 }
 
-.info_his {
-  margin-top: 60px;
-  margin-bottom: 20%;
-}
-.info_his h2 {
-  font-size: 3rem;
-  padding-bottom: 40px;
-}
-.info_his .data {
+header #header {
+  background-color: #01a3a0;
+  width: 100%;
   display: flex;
-  margin-left: 30%;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  bottom: 20px;
+  height: 12vh;
 }
-.info_his .data a {
-  display: flex;
-  flex-wrap: wrap;
-  flex-wrap: nowrap;
-  text-decoration: none;
-  color: #333;
-  border-top: 1px solid #CCC;
-  border-bottom: 1px solid #CCC;
-  padding: 20px 20px;
-  text-decoration: none;
-  block-size: border-box;
+header #header #headIcon {
+  padding: 1%;
+  margin: 1%;
 }
-.info_his .data a .data {
-  min-width: 140px;
-  font-size: 16px;
-  color: #999;
-  padding: 0 20px 0 0;
+header #header #headUser {
+  padding: 1%;
+  border: solid 1px #ffffff;
+  margin: 1%;
 }
-.info_his .data a .category {
-  margin: 0;
-  min-width: 140px;
-  padding: 0 20px 0 0;
+header #header #headUser p {
+  color: #ffffff;
 }
-.info_his .data a title {
-  background: #999;
-  color: #FFF;
+
+main {
+  width: 80%;
   text-align: center;
-  display: inline-block;
-  padding: 5px 20px;
-  font-size: 12px;
-  line-height: 1;
+  font-size: 3rem;
 }
-.info_his .data p {
-  font-size: 2rem;
-}
-.info_his .data p .save {
-  border-left: 1.5px solid #000;
-  padding: 40px;
+main table tr {
+  margin: 40px;
 }/*# sourceMappingURL=style.css.map */
