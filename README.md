@@ -3,7 +3,9 @@
 ## 必読
 
 Flaskアプリ`sk_app`のサーバを起動する際は`sk_06`がカレントディレクトリであることを確認したうえで、`python run.py`を実行してください。\
-htmlでページを追加する際は、`templates/base.html`を必ず適用するようにしてください。\
+htmlでページを追加する際は、以下を適用してください。\
+userの場合、`templates/base_user.html`\
+adminの場合、`templates/base_admin.html`\
 \
 例）sample.htmlの場合
 ```
@@ -23,7 +25,7 @@ htmlでページを追加する際は、`templates/base.html`を必ず適用す�
 AnacondaのFlaskにて動かします。
 \
 開発は現状「C:\work\group\sk_06」で行っています。
-\
+
 
 ## メンバー
 
