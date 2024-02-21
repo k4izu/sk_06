@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2024-02-20 04:38:47
+-- 生成日時: 2024-02-21 04:16:04
 -- サーバのバージョン： 10.4.32-MariaDB
 -- PHP のバージョン: 8.2.12
 
@@ -79,6 +79,7 @@ CREATE TABLE `models` (
   `name` varchar(20) NOT NULL COMMENT 'モデル名',
   `model_file_name` varchar(30) NOT NULL COMMENT 'モデルファイル名',
   `model_image` varchar(30) DEFAULT NULL COMMENT 'モデル画像',
+  `model_info` varchar(400) DEFAULT NULL COMMENT 'モデル詳細',
   `created_at` datetime NOT NULL DEFAULT current_timestamp() COMMENT '作成日時',
   `updated_at` datetime DEFAULT NULL COMMENT '更新日時',
   `deleted_at` datetime DEFAULT NULL COMMENT '削除日時'
@@ -88,8 +89,8 @@ CREATE TABLE `models` (
 -- テーブルのデータのダンプ `models`
 --
 
-INSERT INTO `models` (`id`, `user_id`, `name`, `model_file_name`, `model_image`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, 'サンプルモデル', 'sample.obj', 'sample.png', '2024-02-20 12:37:57', NULL, NULL);
+INSERT INTO `models` (`id`, `user_id`, `name`, `model_file_name`, `model_image`, `model_info`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 'サンプルモデル', 'sample.obj', 'sample.png', 'サンプルサンプル', '2024-02-21 12:14:57', NULL, NULL);
 
 -- --------------------------------------------------------
 
