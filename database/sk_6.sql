@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2024-02-14 02:52:44
+-- 生成日時: 2024-02-20 04:38:47
 -- サーバのバージョン： 10.4.32-MariaDB
 -- PHP のバージョン: 8.2.12
 
@@ -77,7 +77,8 @@ CREATE TABLE `models` (
   `id` int(10) NOT NULL COMMENT 'モデルID',
   `user_id` int(6) NOT NULL COMMENT 'ユーザーID',
   `name` varchar(20) NOT NULL COMMENT 'モデル名',
-  `file_name` varchar(30) NOT NULL COMMENT 'ファイル名',
+  `model_file_name` varchar(30) NOT NULL COMMENT 'モデルファイル名',
+  `model_image` varchar(30) DEFAULT NULL COMMENT 'モデル画像',
   `created_at` datetime NOT NULL DEFAULT current_timestamp() COMMENT '作成日時',
   `updated_at` datetime DEFAULT NULL COMMENT '更新日時',
   `deleted_at` datetime DEFAULT NULL COMMENT '削除日時'
@@ -87,9 +88,8 @@ CREATE TABLE `models` (
 -- テーブルのデータのダンプ `models`
 --
 
-INSERT INTO `models` (`id`, `user_id`, `name`, `file_name`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'サンプルモデル', 'sample.obj', '2024-02-11 16:04:34', NULL, NULL),
-(2, 2, '羽柴秀吉モデル', 'hideyoshi.obj', '2024-02-11 16:04:34', NULL, NULL);
+INSERT INTO `models` (`id`, `user_id`, `name`, `model_file_name`, `model_image`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 2, 'サンプルモデル', 'sample.obj', 'sample.png', '2024-02-20 12:37:57', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,7 @@ ALTER TABLE `devices`
 --
 ALTER TABLE `models`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `file_name` (`file_name`),
+  ADD UNIQUE KEY `model_file_name` (`model_file_name`),
   ADD KEY `fk_models_user` (`user_id`);
 
 --
@@ -160,7 +160,7 @@ ALTER TABLE `devices`
 -- テーブルの AUTO_INCREMENT `models`
 --
 ALTER TABLE `models`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'モデルID', AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'モデルID', AUTO_INCREMENT=2;
 
 --
 -- テーブルの AUTO_INCREMENT `users`
