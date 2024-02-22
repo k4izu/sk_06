@@ -23,6 +23,8 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `sk_6` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `sk_6`;
 
+GRANT USAGE ON *.* TO `admin`@`localhost` IDENTIFIED BY PASSWORD '*6548C40A208FF1E21D7ED9B546B9CF639D30793C';
+GRANT ALL PRIVILEGES ON `sk_6`.* TO `admin`@`localhost`;
 -- --------------------------------------------------------
 
 --
