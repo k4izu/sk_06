@@ -14,3 +14,11 @@ def admin_index():
 @app.route('/adminlogin')
 def login():
     return render_template(admin + 'login.html')
+
+@app.route('/userdata')
+def udata():
+    return render_template(admin + 'user_data.html')
+
+@app.route('/userdevices')
+def udevice():
+    return render_template(admin + 'user_device.html')
