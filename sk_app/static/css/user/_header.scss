@@ -17,11 +17,23 @@ header{
         }
         #headUser{
             padding: 1%;
-            border: solid 1px #ffffff;
+            border: solid 1px #000000;
+            background-color: $tabBg;
             margin: 1%;
             p{
                 color: #ffffff;
-
+            }
+        }
+        #headBox{
+            display: flex;
+            justify-content: space-between;
+            color: #ffffff;
+            width: 15vw;
+            margin: 1%;
+            form{
+                button{
+                    min-width: 100%;
+                }
             }
         }
     }
@@ -32,8 +44,6 @@ header{
     height: 90vh;
     background-color: $tabBg;
     width: $tabWidth;
-    // border-left: $borderBlack;
-    // border-right: $borderBlack;
     border: $borderBlack;
     .tabBox{
         display: flex;
@@ -45,11 +55,24 @@ header{
         .tabText{
             p{
                 font-size: $tabFsize;
+                color: $tabColor;
             }
         }
     }
 }
+// 他共通css
+main:has(#loginWrapper,#signupWrapper){
+    margin: $headerHeight 0 0 0;
+}
 main{
-    margin-top: $headerHeight;
-    margin-left: $tabWidth;
+    margin: $headerHeight 0 0 $tabWidth;
+    overflow: hidden;
+    background-color: $mainBg;
+    min-height: 100vh;
+}
+.errMsg{
+    color: $red;
+}
+input[type="text"]{
+    border: $borderBlack;
 }
