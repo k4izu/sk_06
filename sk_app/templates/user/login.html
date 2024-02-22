@@ -8,6 +8,7 @@
     <div class="loginForm">
         <form action="/login/check" method="post">
             <div class="loginText">
+                <a class="errMsg">{{err_msg.all}}</a>
                 <div class="loginEmail">
                     <p>メールアドレス</p>
                     <input type="text" name="login_email" value={{login_form.login_email}}>

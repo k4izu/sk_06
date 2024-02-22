@@ -17,7 +17,8 @@ header{
         }
         #headUser{
             padding: 1%;
-            border: solid 1px #ffffff;
+            border: solid 1px #000000;
+            background-color: $tabBg;
             margin: 1%;
             p{
                 color: #ffffff;
@@ -54,6 +55,7 @@ header{
         .tabText{
             p{
                 font-size: $tabFsize;
+                color: $tabColor;
             }
         }
     }
@@ -65,7 +67,12 @@ main:has(#loginWrapper,#signupWrapper){
 main{
     margin: $headerHeight 0 0 $tabWidth;
     overflow: hidden;
+    background-color: $mainBg;
+    min-height: 100vh;
 }
 .errMsg{
     color: $red;
+}
+input[type="text"]{
+    border: $borderBlack;
 }

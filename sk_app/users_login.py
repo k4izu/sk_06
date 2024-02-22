@@ -1,8 +1,16 @@
 from sk_app.apps import app
-from flask import render_template,Blueprint,request,redirect
+from flask import render_template,Blueprint,request,redirect,session
+import mysql.connector
 
 
 users_login_view=Blueprint('users_login_view',__name__)
+
+from sk_app.sql_functions import DbOp
+# from sk_app.sql_functions import users_sql_functions
+# ===== ('/user/manual')
+# app.register_blueprint(users_sql_functions)
+
+
 
 # パスの設定
 user = "user/"
@@ -20,6 +28,9 @@ reset_form={}
 # ==========================================================
 @app.route("/")
 def index():
+    # 空ボックス
+    err_msg={}
+    login_form={}
     return render_template(user + "login.html",err_msg=err_msg,login_form=login_form)
 
 
@@ -28,7 +39,7 @@ def index():
 #   OK："/user" NO："login.html"
 # ==========================================================
 @app.route("/login/check", methods=["POST"])
-def login_check():    
+def login_check():  
     # ===== データ受信
     login_form = request.form
     # ===== 入力項目TBL 
@@ -54,7 +65,37 @@ def login_check():
     if flg != 0:
         return render_template(user + "login.html",err_msg=err_msg, login_form=login_form)
     else:
-        return redirect("/user")
+        try:
+            # === dbからユーザー情報を取得
+            dbop=DbOp('users')
+            result=dbop.selectAll()
+            # reccnt=dbop.selectCnt() # データ件数
+            dbop.close()
+            flg=0
+            for res_data in result:
+                # ==== データが含まれているか確認（含まれていればflg=1）
+                if (res_data["email"] ==login_form["login_email"]) and (res_data["password"] ==login_form["login_pass"]):
+                    flg=1
+                    # ===== SESSION保存
+                    # session["user_sess"]=res_data["password"] #passwordのみの場合
+                    session["user_sess"]=res_data
+                    break
+            if flg==1:
+                err_msg["all"]=""
+                # === /userへ
+                return redirect('/user') 
+            else:
+                err_msg["all"]="メールアドレスまたはパスワードが間違っています"
+                return render_template(user + "login.html",err_msg=err_msg, login_form=login_form)
+        except mysql.connector.errors.ProgrammingError as e:
+            print('***DB接続エラー***')        #===pass間違いなど
+            print(type(e))  #===例外名出力
+            print(e)        #===例外内容出力
+        except Exception as e:
+            print('***システム運行プログラムエラー***') #===未知のエラー
+            print(type(e))  #===例外名出力
+            print(e)        #===例外内容出力
+        return 
 
 
 # ==========================================================
@@ -62,6 +103,9 @@ def login_check():
 # ==========================================================
 @app.route("/signup", methods=["GET"])
 def signup():
+    # 空ボックス
+    err_msg={}
+    signup_form={}
     return render_template(user+"signup.html",err_msg=err_msg, signup_form=signup_form)
 
 

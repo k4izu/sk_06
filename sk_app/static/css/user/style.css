@@ -20,7 +20,7 @@ h3 {
 }
 
 header #header {
-  background-color: #768459;
+  background-color: #b2ada2;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -35,7 +35,8 @@ header #header #headIcon {
 }
 header #header #headUser {
   padding: 1%;
-  border: solid 1px #ffffff;
+  border: solid 1px #000000;
+  background-color: #5c574f;
   margin: 1%;
 }
 header #header #headUser p {
@@ -56,7 +57,7 @@ header #header #headBox form button {
   position: fixed;
   top: 12vh;
   height: 90vh;
-  background-color: #8F8460;
+  background-color: #5c574f;
   width: 12vw;
   border: solid 1px #000000;
 }
@@ -70,6 +71,7 @@ header #header #headBox form button {
 }
 #tabWrapper .tabBox .tabText p {
   font-size: 1.6rem;
+  color: rgb(228, 228, 228);
 }
 
 main:has(#loginWrapper, #signupWrapper) {
@@ -79,10 +81,16 @@ main:has(#loginWrapper, #signupWrapper) {
 main {
   margin: 12vh 0 0 12vw;
   overflow: hidden;
+  background-color: #dedad4;
+  min-height: 100vh;
 }
 
 .errMsg {
   color: #ff0000;
+}
+
+input[type=text] {
+  border: solid 1px #000000;
 }
 
 #loginWrapper {
