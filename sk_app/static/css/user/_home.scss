@@ -1,0 +1,35 @@
+@use "_variable.scss" as *;
+
+#homeWrapper{
+    margin: 2%;
+    overflow: hidden;
+    .homeTitle{
+        margin: 1%;
+        h2{
+            
+        }
+    }
+    .homeMain{
+        .homeInfo{
+            margin: 3%;
+            .homeInfoBox{
+                border: $borderBlack;
+                position: relative;
+                .homeInfoTitle{
+                    border-bottom: $borderBlack;
+                    height: 5vh;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 1%;
+                }
+                .homeInfoText{
+                    height: 15vh;
+                    padding-left: 2%
+                }
+            }
+            .homeInfoBox:nth-child(2){
+                margin-top: -1px;
+            }
+        }
+    }
+}
