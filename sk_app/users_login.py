@@ -169,9 +169,9 @@ def signup_comp():
         signup_sess=session["signup_sess"]
         # === 必要なデータのみ抽出
         signup_form={
-            "signup_name":signup_sess["signup_name"],
-            "signup_email":signup_sess["signup_email"],
-            "signup_pass":signup_sess["signup_pass"],
+            "name":signup_sess["signup_name"],
+            "email":signup_sess["signup_email"],
+            "password":signup_sess["signup_pass"],
         }
     else:
         # ===== session確認してなければもう一度signupへ
@@ -179,9 +179,9 @@ def signup_comp():
     
     sql1='name,email,password'
 
-    sql2= '"'+signup_form['signup_name']+'",'
-    sql2+='"'+signup_form["signup_email"]+'",'
-    sql2+='"'+signup_form["signup_pass"]+'"'
+    sql2= '"'+signup_form['name']+'",'
+    sql2+='"'+signup_form["email"]+'",'
+    sql2+='"'+signup_form["password"]+'"'
     try:
         # ====== 登録処理
         dbop=DbOp('users')
@@ -189,10 +189,28 @@ def signup_comp():
         dbop.close()
         # ===== session削除
         session.pop('signup_sess',None)
-        # ===== session登録
-        session['user_sess']=signup_form
-        # ===== checkdel.htmlへ
-        return render_template(user+'signup_comp.html')
+        try:
+        # === 登録されたid取得のためdbからユーザー情報を取得
+            dbop=DbOp('users')
+            result=dbop.selectAll()
+            dbop.close()
+            flg=0
+            for res_data in result:
+                # ==== データが含まれているか確認（含まれていればflg=1）
+                if (res_data["email"] ==signup_form["email"]) and (res_data["password"] ==signup_form["password"]):
+                    # ===== SESSION保存
+                    session["user_sess"]=res_data
+                    break
+            # ===== signup.comp.htmlへ
+            return render_template(user+'signup_comp.html')
+        except mysql.connector.errors.ProgrammingError as e:
+            print('***DB接続エラー***')        #===pass間違いなど
+            print(type(e))  #===例外名出力
+            print(e)        #===例外内容出力
+        except Exception as e:
+            print('***システム運行プログラムエラー***') #===未知のエラー
+            print(type(e))  #===例外名出力
+            print(e)        #===例外内容出力
     except mysql.connector.errors.ProgrammingError as e:
         print('***DB接続エラー***')        #===pass間違いなど
         print(type(e))  #===例外名出力

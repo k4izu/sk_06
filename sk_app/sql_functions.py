@@ -121,6 +121,18 @@ class DbOp:
         self.__con.commit()                         #===commit
         cur.close()    
 
+    # ===== DB接続 & データ変更
+    def updTbl(self,val1,val2):
+        sql ='UPDATE ' + self.__table + ' SET ' + val1 + 'WHERE'
+        sql+=val2
+        sql+=';'
+
+        cur=self.__con.cursor(dictionary=True)      #===カーソル作成
+        cur.execute(sql)                            #===SQL発行
+        self.__con.commit()                         #===commit
+        cur.close()    
+
+
     # ===== DB接続 & データ削除
     def delTbl(self,val):
         sql ='DELETE FROM ' + self.__table + ' WHERE '
