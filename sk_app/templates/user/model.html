@@ -1,0 +1,34 @@
+{% extends "base_user.html" %}
+{% block title %}3Dモデル{% endblock %}
+{% block content %}
+<div id="modelWrapper">
+    <div class="modelTitle">
+        <h2>3Dモデル一覧</h2>
+    </div>
+    <div class="modelMain">
+        {% for rec in model_data  %}
+        <div class="modelBox">
+            <div class="modelBoxImg">
+                <p><img src='static/img/{{rec["model_image"]}}' alt=""></p>
+            </div>
+            <div class="modelBoxMain">
+                <div class="modelBoxTitle">
+                    <h3>{{rec["name"]}}</h3>
+                </div>
+                <div class="modelBoxButton">
+                    <div class="modelButtonDetail">
+                        <a href="http://127.0.0.1:5000/model/detail/{{ rec['id'] }}">詳細</a>
+                    </div>
+                    <div class="modelButtonDelete">
+                        <a href="http://127.0.0.1:5000/model/delete/{{ rec['id'] }}">削除</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/destyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user/style.css') }}">
+</head>
+<body>
+    <header>
+        <div id="header">
+            <div id="headIcon">
+                <h1>アイコン</h1>
+            </div>
+            <div id="headBox">
+                <form action="/signup">
+                    <button>新規会員登録</button>
+                </form>
+                <form action="/">
+                    <button>ログイン</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main>
+    {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

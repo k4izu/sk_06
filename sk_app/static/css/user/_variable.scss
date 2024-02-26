@@ -1,14 +1,23 @@
+//  header類
 // user header
-$headerBg: #768459;
+$headerBg: #b2ada2;
 $headerHeight:12vh;
 
 // user tab
-$tabBg: #8F8460;
+$tabBg: #5c574f;
 $tabWidth: 12vw;
-$tabFsize: 1.8rem;
+$tabFsize: 1.6rem;
+$tabColor: rgb(228, 228, 228);
 
 // border線
 $borderBlack:solid 1px #000000;
 
+// 文字太さ
+$bold: 600;
+
 // 見出し文字の色関連
 $titleColor: #4f5e77;
+
+// その他色
+$mainBg: #dedad4;
+$red: #ff0000;

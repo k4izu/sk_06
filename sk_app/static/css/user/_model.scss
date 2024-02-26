@@ -1,0 +1,54 @@
+@use "_variable.scss" as *;
+
+#modelWrapper{
+    margin: 2%;
+    overflow: hidden;
+    .modelTitle{
+        font-weight: $bold;
+    }
+    .modelMain{
+        display: flex;
+        margin: 5%;
+        .modelBox{
+            width: 45%;
+            border: $borderBlack;
+            display: flex;
+            flex-wrap: wrap;
+            .modelBoxImg{
+                width: 44%;
+                margin: 3%;
+                p{
+                    img{
+                        max-width: 100%;
+                    }
+                }
+            }
+            .modelBoxMain{
+                width: 40%;
+                margin: 5%;
+                display: flex;
+                flex-wrap: wrap;
+                .modelBoxTitle{
+                    width: 100%;
+                    h3{
+                        border-bottom: $borderBlack;
+                    }
+                }
+                .modelBoxButton{
+                    width: 100%;
+                    div{
+                        width: 100%;
+                        button{
+                            width: 100%;
+                            display: block;
+                            border: $borderBlack;
+                            margin: 5% 0;
+                            a{
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
