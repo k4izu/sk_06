@@ -1,15 +1,11 @@
 from sk_app.apps import app
+from sk_app.sql_functions import DbOp
+import sk_app.users_functions as functions
 from flask import render_template,Blueprint,request,redirect,session
 import mysql.connector
 
 
 users_login_view=Blueprint('users_login_view',__name__)
-
-from sk_app.sql_functions import DbOp
-# from sk_app.sql_functions import users_sql_functions
-# ===== ('/user/manual')
-# app.register_blueprint(users_sql_functions)
-
 
 
 # パスの設定
@@ -26,7 +22,7 @@ reset_form={}
 # ==========================================================
 #   ログイン                ("/")
 # ==========================================================
-@app.route("/")
+@app.route("/login")
 def index():
     # 空ボックス
     err_msg={}
@@ -106,12 +102,22 @@ def signup():
     # 空ボックス
     err_msg={}
     signup_form={}
+    signup_sess={}
+    # === session存在チェック
+    if "signup_sess" in session:
+        signup_sess=session["signup_sess"]
+        # === 必要なデータのみ抽出
+        signup_form={
+            "signup_name":signup_sess["signup_name"],
+            "signup_email":signup_sess["signup_email"],
+            "signup_pass":signup_sess["signup_pass"],
+        }
     return render_template(user+"signup.html",err_msg=err_msg, signup_form=signup_form)
 
 
 # ==========================================================
 #   会員登録確認             ("/signup/check")
-#   OK："/signup/comp" NO："signup.html"
+#   OK："/signup/check" NO："signup.html"
 # ==========================================================
 @app.route("/signup/check", methods=["POST"])
 def signup_check():
@@ -135,14 +141,69 @@ def signup_check():
         elif signup_form[key] == None:
             err_msg[key] = vtbl[key] + "が入力されていません"
             flg = 1
+        # ===== パスワードが確認用と等しくない場合
+        elif signup_form["signup_pass"]!=signup_form["signup_pass_check"]:
+            flg=1
+            err_msg["all"]="パスワードと確認用が異なります"
+            err_msg["signup_pass_check"]="確認用のパスワードが異なります"
         else:
             #==== エラーメッセージの初期化
             err_msg[key] = ""
     # ===== 入力漏れが合った場合は再び"signup.html"へ
     if flg != 0:
         return render_template(user+"signup.html",err_msg=err_msg, signup_form=signup_form)
-    # ===== 登録完了ページ"signup_comp.html"へ
-    return render_template(user+"signup_comp.html",signup_form=signup_form)
+    session["signup_sess"]=signup_form
+    # ===== 登録確認ページ"signup_check.html"へ
+    return render_template(user+"signup_check.html",signup_form=signup_form)
+
+
+
+# ==========================================================
+#   会員登録                    ("/signup/comp")
+# ==========================================================
+@app.route("/signup/comp", methods=["GET"])
+def signup_comp():
+    signup_sess={}
+    # === session存在チェック
+    if "signup_sess" in session:
+        signup_sess=session["signup_sess"]
+        # === 必要なデータのみ抽出
+        signup_form={
+            "signup_name":signup_sess["signup_name"],
+            "signup_email":signup_sess["signup_email"],
+            "signup_pass":signup_sess["signup_pass"],
+        }
+    else:
+        # ===== session確認してなければもう一度signupへ
+        return redirect('/signup')
+    
+    sql1='name,email,password'
+
+    sql2= '"'+signup_form['signup_name']+'",'
+    sql2+='"'+signup_form["signup_email"]+'",'
+    sql2+='"'+signup_form["signup_pass"]+'"'
+    try:
+        # ====== 登録処理
+        dbop=DbOp('users')
+        dbop.insTblWC(sql1,sql2)
+        dbop.close()
+        # ===== session削除
+        session.pop('signup_sess',None)
+        # ===== session登録
+        session['user_sess']=signup_form
+        # ===== checkdel.htmlへ
+        return render_template(user+'signup_comp.html')
+    except mysql.connector.errors.ProgrammingError as e:
+        print('***DB接続エラー***')        #===pass間違いなど
+        print(type(e))  #===例外名出力
+        print(e)        #===例外内容出力
+    except Exception as e:
+        print('***システム運行プログラムエラー***') #===未知のエラー
+        print(type(e))  #===例外名出力
+        print(e)        #===例外内容出力
+    
+
+
 
 
 # ==========================================================

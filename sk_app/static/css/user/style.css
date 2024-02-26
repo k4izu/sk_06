@@ -128,4 +128,53 @@ input[type=text] {
 }
 #homeWrapper .homeMain .homeInfo .homeInfoBox:nth-child(2) {
   margin-top: -1px;
+}
+
+#modelWrapper {
+  margin: 2%;
+  overflow: hidden;
+}
+#modelWrapper .modelTitle {
+  font-weight: 600;
+}
+#modelWrapper .modelMain {
+  display: flex;
+  margin: 5%;
+}
+#modelWrapper .modelMain .modelBox {
+  width: 45%;
+  border: solid 1px #000000;
+  display: flex;
+  flex-wrap: wrap;
+}
+#modelWrapper .modelMain .modelBox .modelBoxImg {
+  width: 44%;
+  margin: 3%;
+}
+#modelWrapper .modelMain .modelBox .modelBoxImg p img {
+  max-width: 100%;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain {
+  width: 40%;
+  margin: 5%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain .modelBoxTitle {
+  width: 100%;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain .modelBoxTitle h3 {
+  border-bottom: solid 1px #000000;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain .modelBoxButton {
+  width: 100%;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain .modelBoxButton div {
+  width: 100%;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain .modelBoxButton div button {
+  width: 100%;
+  display: block;
+  border: solid 1px #000000;
+  margin: 5% 0;
 }/*# sourceMappingURL=style.css.map */

@@ -8,6 +8,7 @@
     <div class="signupForm">
         <form action="/signup/check" method="post">
             <div class="signupText">
+                <a class="errMsg">{{err_msg.all}}</a>
                 <div class="signupName">
                     <p>ユーザー名</p>
                     <input type="text" name="signup_name" value={{signup_form.signup_name}}>
