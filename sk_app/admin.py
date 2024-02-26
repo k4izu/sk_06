@@ -27,16 +27,17 @@ def login():
 @app.route('/user_data')
 def userdata():
 
-    sql="select * from users"
+    # sql="select * from users"
     # === 配列格納
+    user_data={}
     try:
         # ====== モデルデータ抽出
         dbop=DbOp('users')
-        user_data=dbop.selectEx(sql)
+        user_data=dbop.selectAll()
         dbop.close()
-        print(user_data)
+        # print(user_data)
         # ===== users_model.htmlへ
-        return render_template(admin+'user_data.html',user_data=user_data)
+        # return render_template(admin+'user_data.html',user_data=user_data)
     except mysql.connector.errors.ProgrammingError as e:
         print('***DB接続エラー***')        #===pass間違いなど
         print(type(e))  #===例外名出力
@@ -46,17 +47,18 @@ def userdata():
         print(type(e))  #===例外名出力
         print(e)        #===例外内容出力    
 
-    return render_template(admin + 'user_data.html')
+    return render_template(admin + 'user_data.html',user_data=user_data)
 
 @app.route('/user_devices')
-def udevice():
+def user_devices():
     
-    sql="select * from devices"
+    # sql="select * from devices"
     # === 配列格納
+    devices_data={}
     try:
         # ====== モデルデータ抽出
         dbop=DbOp('devices')
-        devices_data=dbop.selectEx(sql)
+        devices_data=dbop.selectAll()
         dbop.close()
         print(devices_data)
         # ===== users_model.htmlへ
@@ -71,8 +73,7 @@ def udevice():
         print(e)        #===例外内容出力    
 
     return render_template(admin + 'user_devices.html')
-    
-    return render_template(admin + 'user_device.html')
+
 
 class DbOp:
     # ===== コンストラクタ =============
@@ -120,3 +121,88 @@ class DbOp:
 
             cur.close()                                 #===カーソルCLOSE
             return res
+    # ===== DB接続 & 絞り込み条件抽出
+        def selectEx(self,ex):
+            sql='SELECT * FROM ' + self.__table + ' WHERE ' + ex + ';'
+
+            cur=self.__con.cursor(dictionary=True)      #===カーソル作成
+            cur.execute(sql)                            #===SQL発行
+            res=cur.fetchall()                          #===select結果全件格納
+            cur.close()                                 #===カーソルCLOSE
+
+            # === 二次元配列を返す
+            return res
+        
+        # ===== DB接続 & 絞り込み条件抽出（1件のみ）
+        def selectOne(self,ex):
+            sql='SELECT * FROM ' + self.__table + ' WHERE ' + ex + ';'
+
+            cur=self.__con.cursor(dictionary=True)      #===カーソル作成
+            cur.execute(sql)                            #===SQL発行
+            res=cur.fetchall()                          #===select結果全件格納
+            cur.close()                                 #===カーソルCLOSE
+
+            # === 二次元配列の0行目（一件）のみを返す
+            return res[0]
+        
+        # ===== DB接続 & データ件数取得
+        def selectCnt(self):
+            sql='SELECT COUNT(*) AS reccnt FROM ' + self.__table + ';'
+
+            cur=self.__con.cursor(dictionary=True)      #===カーソル作成
+            cur.execute(sql)                            #===SQL発行
+            res=cur.fetchall()                          #===select結果全件格納
+            cur.close()                                 #===カーソルCLOSE
+
+            # === 二次元配列の0行目（一件）のみを返す　※件数
+            return res[0]
+        
+        # ===== DB接続 & データ挿入
+        def insTbl(self,val):
+            sql ='INSERT INTO ' + self.__table + ' VALUES('
+            sql+=val
+            sql+=');'
+
+            cur=self.__con.cursor(dictionary=True)      #===カーソル作成
+            cur.execute(sql)                            #===SQL発行
+            self.__con.commit()                         #===commit
+            cur.close()                                 #===カーソルCLOSE
+
+
+        # ===== DB接続 & データ挿入（数個だけ）
+        def insTblWC(self,val1,val2):
+            sql ='INSERT INTO ' + self.__table + '(' + val1 + ') VALUES('
+            sql+=val2
+            sql+=');'
+
+            cur=self.__con.cursor(dictionary=True)      #===カーソル作成
+            cur.execute(sql)                            #===SQL発行
+            self.__con.commit()                         #===commit
+            cur.close()    
+
+        # ===== DB接続 & データ変更
+        def updTbl(self,val1,val2):
+            sql ='UPDATE ' + self.__table + ' SET ' + val1 + 'WHERE'
+            sql+=val2
+            sql+=';'
+
+            cur=self.__con.cursor(dictionary=True)      #===カーソル作成
+            cur.execute(sql)                            #===SQL発行
+            self.__con.commit()                         #===commit
+            cur.close()    
+
+
+        # ===== DB接続 & データ削除
+        def delTbl(self,val):
+            sql ='DELETE FROM ' + self.__table + ' WHERE '
+            sql+=val
+            sql+=';'
+
+            cur=self.__con.cursor(dictionary=True)      #===カーソル作成
+            cur.execute(sql)                            #===SQL発行
+            self.__con.commit()                         #===commit
+            cur.close()                                 #===カーソルCLOSE
+
+        # ===== DB切断
+        def close(self):
+            self.__con.close()                      #===DB CLOSE

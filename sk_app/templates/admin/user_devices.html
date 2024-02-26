@@ -50,12 +50,15 @@
             <th>更新日時</th>
             <th>削除日時</th>
         </tr>
+        {% for rec in devices_data %}
         <tr>
-            {% for rec in devices_data %}
-
-            <td>{{ rec[id] }}</td>
-
-            {% endfor %}
+            <td>{{ rec["id"] }}</td>
+            <td>{{ rec["user_id"] }}</td>
+            <td>{{ rec["name"] }}</td>
+            <td>{{ rec["created_at"] }}</td>
+            <td>{{ rec["updated_at"] }}</td>
+            <td>{{ rec["deleted_at"] }}</td>
         </tr>
+        {% endfor %}
     </table>
 {% endblock %}

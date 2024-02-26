@@ -45,11 +45,19 @@
                 <th>削除日時</th>
             </tr>
             <tr>
+                
                 {% for rec in user_data %}
         
                 <td>{{ rec["id"] }}</td>
-        
+                <td>{{ rec["name"] }}</td>
+                <td>{{ rec["email"] }}</td>
+                <td>{{ rec["password"] }}</td>
+                <td>{{ rec["created_at"] }}</td>
+                <td>{{ rec["updated_at"] }}</td>
+                <td>{{ rec["deleted_at"] }}</td>
+                    
                 {% endfor %}
+                
             </tr>
         </table>
     </div>
