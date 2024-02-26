@@ -44,9 +44,8 @@
                 <th>更新日時</th>
                 <th>削除日時</th>
             </tr>
+            {% for rec in user_data %}
             <tr>
-                
-                {% for rec in user_data %}
         
                 <td>{{ rec["id"] }}</td>
                 <td>{{ rec["name"] }}</td>
@@ -54,11 +53,10 @@
                 <td>{{ rec["password"] }}</td>
                 <td>{{ rec["created_at"] }}</td>
                 <td>{{ rec["updated_at"] }}</td>
-                <td>{{ rec["deleted_at"] }}</td>
-                    
-                {% endfor %}
+                <td>{{ rec["deleted_at"] }}</td>    
                 
             </tr>
+            {% endfor %}
         </table>
     </div>
 {% endblock %}

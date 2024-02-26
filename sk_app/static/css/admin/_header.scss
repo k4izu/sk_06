@@ -1,6 +1,7 @@
 @use "_variable.scss" as *;
 
 header{
+    z-index: 1;
     #header{
         background-color: $headerBg;
         // border: $borderBlack;

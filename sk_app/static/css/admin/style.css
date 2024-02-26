@@ -7,6 +7,9 @@ body {
   font-size: 1.5rem;
 }
 
+header {
+  z-index: 1;
+}
 header #header {
   background-color: #768459;
   width: 100%;
@@ -151,4 +154,23 @@ main table {
 }
 main input[type=submit] {
   margin-left: 30%;
+}
+
+main {
+  width: 80%;
+  height: 100%;
+  position: relative;
+  margin-left: 15%;
+}
+
+.devicesdb, .userdb {
+  z-index: -1;
+  margin-right: 30px;
+}
+.devicesdb table, .userdb table {
+  width: 100%;
+  margin-top: 30px;
+}
+.devicesdb table td, .devicesdb table th, .userdb table td, .userdb table th {
+  font-size: 2rem;
 }/*# sourceMappingURL=style.css.map */

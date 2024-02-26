@@ -1,0 +1,23 @@
+@use "_variable.scss" as *;
+
+main{
+    width: 80%;
+    height: 100%;
+    position: relative;
+    margin-left: 15%;
+}
+
+.devicesdb,.userdb{
+    z-index: -1;
+    margin-right: 30px;
+    table{
+        width: 100%;
+        margin-top: 30px;
+        td,th{
+            // width: 50%;
+            // padding: 10px;
+            font-size: 2rem;
+            // padding-left: 10px;
+        }
+    }
+}

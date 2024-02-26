@@ -41,24 +41,27 @@
         <p>hoverで上下矢印切り替え</p>
     </form> -->
 
-    <table>
-        <tr>
-            <th>デバイスID</th>
-            <th>ユーザID</th>
-            <th>デバイス名</th>
-            <th>作成日時</th>
-            <th>更新日時</th>
-            <th>削除日時</th>
-        </tr>
-        {% for rec in devices_data %}
-        <tr>
-            <td>{{ rec["id"] }}</td>
-            <td>{{ rec["user_id"] }}</td>
-            <td>{{ rec["name"] }}</td>
-            <td>{{ rec["created_at"] }}</td>
-            <td>{{ rec["updated_at"] }}</td>
-            <td>{{ rec["deleted_at"] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-{% endblock %}
+    <dev class="devicesdb">
+        <table border="1">
+            <tr>
+                <th>デバイスID</th>
+                <th>ユーザID</th>
+                <th>デバイス名</th>
+                <th>作成日時</th>
+                <th>更新日時</th>
+                <th>削除日時</th>
+            </tr>
+            {% for rec in devices_data %}
+            <tr>
+                <td>{{ rec["id"] }}</td>
+                <td>{{ rec["user_id"] }}</td>
+                <td>{{ rec["name"] }}</td>
+                <td>{{ rec["created_at"] }}</td>
+                <td>{{ rec["updated_at"] }}</td>
+                <td>{{ rec["deleted_at"] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endblock %}
+    </dev>
+
