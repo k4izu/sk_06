@@ -47,13 +47,13 @@ user = "user/"
 err_msg={}
 
 # ==========================================================
-#   会員のホーム             ("/user")
+#   会員のホーム             ("/")
 #   ※ログイン後表示
 # ==========================================================
-@app.route("/user")
+@app.route("/")
 def user_index():
     # === sessionが無ければloginページへ
     user_data=functions.session_check()
     if user_data=="FALSE":
-        return redirect('/')
+        return redirect('/login')
     return render_template(user + "index.html",user_data=user_data)

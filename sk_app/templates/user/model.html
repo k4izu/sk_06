@@ -9,7 +9,7 @@
         {% for rec in model_data  %}
         <div class="modelBox">
             <div class="modelBoxImg">
-                <p><img src='static/img/{{rec["model_image"]}}' alt="{{ file_name }}"></p>
+                <p><img src='static/img/{{rec["model_image"]}}' alt=""></p>
             </div>
             <div class="modelBoxMain">
                 <div class="modelBoxTitle">
@@ -17,21 +17,17 @@
                 </div>
                 <div class="modelBoxButton">
                     <div class="modelButtonDetail">
-                        <button>
-                            <a href="http://127.0.0.1:5000/model/detail/{{ rec['model_id'] }}">詳細</a>
-                        </button>
+                        <a href="http://127.0.0.1:5000/model/detail/{{ rec['id'] }}">詳細</a>
                     </div>
                     <div class="modelButtonDelete">
-                        <button>
-                            <a href="http://127.0.0.1:5000/model/delete/{{ rec['model_id'] }}">削除</a>
-                        </button>
+                        <a href="http://127.0.0.1:5000/model/delete/{{ rec['id'] }}">削除</a>
                     </div>
                 </div>
             </div>
         </div>
         {% endfor %}
         <div>
-            
+
         </div>
     </div>
 </div>

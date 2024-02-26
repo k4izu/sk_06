@@ -109,6 +109,18 @@ class DbOp:
         self.__con.commit()                         #===commit
         cur.close()                                 #===カーソルCLOSE
 
+
+    # ===== DB接続 & データ挿入（数個だけ）
+    def insTblWC(self,val1,val2):
+        sql ='INSERT INTO ' + self.__table + '(' + val1 + ') VALUES('
+        sql+=val2
+        sql+=');'
+
+        cur=self.__con.cursor(dictionary=True)      #===カーソル作成
+        cur.execute(sql)                            #===SQL発行
+        self.__con.commit()                         #===commit
+        cur.close()    
+
     # ===== DB接続 & データ削除
     def delTbl(self,val):
         sql ='DELETE FROM ' + self.__table + ' WHERE '

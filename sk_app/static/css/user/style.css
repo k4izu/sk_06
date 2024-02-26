@@ -132,6 +132,7 @@ input[type=text] {
 
 #modelWrapper {
   margin: 2%;
+  overflow: hidden;
 }
 #modelWrapper .modelTitle {
   font-weight: 600;

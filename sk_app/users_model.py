@@ -24,7 +24,7 @@ def model():
     # === sessionが無ければloginページへ
     user_data=functions.session_check()
     if user_data=="FALSE":
-        return redirect('/')
+        return redirect('/login')
     # === 配列格納
     vtbl={
         "model_img":"画像",
@@ -33,16 +33,12 @@ def model():
     }
     # === user_idで登録されているmodelを抽出
     sql=f'user_id = "{user_data["user_id"]}"'
-    # print(type(user_data))
-    # print("user_id" in user_data)
-    # print(user_data.get("user_id"))
-    # print(user_data["user_id"])
     try:
-        # ====== 抽出処理
+        # ====== モデルデータ抽出
         dbop=DbOp('models')
-        result=dbop.selectEx(sql)
+        model_data=dbop.selectEx(sql)
         dbop.close()
-        print(result)
+        print(model_data)
         # ===== users_model.htmlへ
         return render_template(user+'model.html',model_data=model_data,vtbl=vtbl)
     except mysql.connector.errors.ProgrammingError as e:
@@ -55,11 +51,39 @@ def model():
         print(e)        #===例外内容出力
 
 # ==========================================================
-#   モデル詳細              ('/model/detail/<scode>')
+#   モデル詳細              ('/model/detail/<id>')
 # ==========================================================
-@app.route("/model/detail/<scode>",methods=["get"])
-def model_detail(scode):
-    test=scode
+@app.route("/model/detail/<id>",methods=["get"])
+def model_detail(id):
+    # === sessionが無ければloginページへ
+    user_data=functions.session_check()
+    if user_data=="FALSE":
+        return redirect('/login')
+    # === 配列格納
+    vtbl={
+        "model_img":"画像",
+        "model_name":"商品名",
+        "model_id":"登録ID"
+    }
+    # === 選択されたmodelを抽出
+    sql=f'id = "{id}"'
+    try:
+        # ====== モデルデータ抽出
+        dbop=DbOp('models')
+        model_data=dbop.selectEx(sql)
+        dbop.close()
+        print(model_data)
+        # ===== users_model.htmlへ
+        return render_template(user+'model_detail.html',model_data=model_data,vtbl=vtbl)
+    except mysql.connector.errors.ProgrammingError as e:
+        print('***DB接続エラー***')        #===pass間違いなど
+        print(type(e))  #===例外名出力
+        print(e)        #===例外内容出力
+    except Exception as e:
+        print('***システム運行プログラムエラー***') #===未知のエラー
+        print(type(e))  #===例外名出力
+        print(e)        #===例外内容出力
+    test=id
     return render_template(user+"model_detail.html",test=test)
 
 
