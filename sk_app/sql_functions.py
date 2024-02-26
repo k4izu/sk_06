@@ -71,6 +71,18 @@ class DbOp:
         res=cur.fetchall()                          #===select結果全件格納
         cur.close()                                 #===カーソルCLOSE
 
+        # === 二次元配列を返す
+        return res
+    
+    # ===== DB接続 & 絞り込み条件抽出（1件のみ）
+    def selectOne(self,ex):
+        sql='SELECT * FROM ' + self.__table + ' WHERE ' + ex + ';'
+
+        cur=self.__con.cursor(dictionary=True)      #===カーソル作成
+        cur.execute(sql)                            #===SQL発行
+        res=cur.fetchall()                          #===select結果全件格納
+        cur.close()                                 #===カーソルCLOSE
+
         # === 二次元配列の0行目（一件）のみを返す
         return res[0]
     

@@ -1,15 +1,11 @@
 from sk_app.apps import app
+from sk_app.sql_functions import DbOp
+import sk_app.users_functions as functions
 from flask import render_template,Blueprint,request,redirect,session
 import mysql.connector
 
 
 users_login_view=Blueprint('users_login_view',__name__)
-
-from sk_app.sql_functions import DbOp
-# from sk_app.sql_functions import users_sql_functions
-# ===== ('/user/manual')
-# app.register_blueprint(users_sql_functions)
-
 
 
 # パスの設定
