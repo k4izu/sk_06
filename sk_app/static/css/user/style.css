@@ -4,11 +4,23 @@ html {
 }
 
 body {
+  font-size: 1.4rem;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.7em;
+}
+
+h3 {
   font-size: 1.5rem;
 }
 
 header #header {
-  background-color: #768459;
+  background-color: #b2ada2;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -23,18 +35,29 @@ header #header #headIcon {
 }
 header #header #headUser {
   padding: 1%;
-  border: solid 1px #ffffff;
+  border: solid 1px #000000;
+  background-color: #5c574f;
   margin: 1%;
 }
 header #header #headUser p {
   color: #ffffff;
+}
+header #header #headBox {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+  width: 15vw;
+  margin: 1%;
+}
+header #header #headBox form button {
+  min-width: 100%;
 }
 
 #tabWrapper {
   position: fixed;
   top: 12vh;
   height: 90vh;
-  background-color: #8F8460;
+  background-color: #5c574f;
   width: 12vw;
   border: solid 1px #000000;
 }
@@ -47,10 +70,111 @@ header #header #headUser p {
   height: 8vh;
 }
 #tabWrapper .tabBox .tabText p {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  color: rgb(228, 228, 228);
+}
+
+main:has(#loginWrapper, #signupWrapper) {
+  margin: 12vh 0 0 0;
 }
 
 main {
-  margin-top: 12vh;
-  margin-left: 12vw;
+  margin: 12vh 0 0 12vw;
+  overflow: hidden;
+  background-color: #dedad4;
+  min-height: 100vh;
+}
+
+.errMsg {
+  color: #ff0000;
+}
+
+input[type=text] {
+  border: solid 1px #000000;
+}
+
+#loginWrapper {
+  margin: 3% 20%;
+}
+#loginWrapper input {
+  display: block;
+  border: solid 1px #000000;
+}
+
+#homeWrapper {
+  margin: 2%;
+  overflow: hidden;
+}
+#homeWrapper .homeTitle {
+  margin: 1%;
+}
+#homeWrapper .homeMain .homeInfo {
+  margin: 3%;
+}
+#homeWrapper .homeMain .homeInfo .homeInfoBox {
+  border: solid 1px #000000;
+  position: relative;
+}
+#homeWrapper .homeMain .homeInfo .homeInfoBox .homeInfoTitle {
+  border-bottom: solid 1px #000000;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  padding-left: 1%;
+}
+#homeWrapper .homeMain .homeInfo .homeInfoBox .homeInfoText {
+  height: 15vh;
+  padding-left: 2%;
+}
+#homeWrapper .homeMain .homeInfo .homeInfoBox:nth-child(2) {
+  margin-top: -1px;
+}
+
+#modelWrapper {
+  margin: 2%;
+  overflow: hidden;
+}
+#modelWrapper .modelTitle {
+  font-weight: 600;
+}
+#modelWrapper .modelMain {
+  display: flex;
+  margin: 5%;
+}
+#modelWrapper .modelMain .modelBox {
+  width: 45%;
+  border: solid 1px #000000;
+  display: flex;
+  flex-wrap: wrap;
+}
+#modelWrapper .modelMain .modelBox .modelBoxImg {
+  width: 44%;
+  margin: 3%;
+}
+#modelWrapper .modelMain .modelBox .modelBoxImg p img {
+  max-width: 100%;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain {
+  width: 40%;
+  margin: 5%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain .modelBoxTitle {
+  width: 100%;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain .modelBoxTitle h3 {
+  border-bottom: solid 1px #000000;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain .modelBoxButton {
+  width: 100%;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain .modelBoxButton div {
+  width: 100%;
+}
+#modelWrapper .modelMain .modelBox .modelBoxMain .modelBoxButton div button {
+  width: 100%;
+  display: block;
+  border: solid 1px #000000;
+  margin: 5% 0;
 }/*# sourceMappingURL=style.css.map */

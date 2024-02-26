@@ -10,7 +10,7 @@
 
     <h3>絞り込み</h3>
 
-    <form action="/user_data" method="get">
+    <!-- <form action="/user_data" method="get">
         <table>
             <tr>
                 <td>IDで絞り込む</td>
@@ -31,24 +31,25 @@
         </table>
         <br>
         <p>hoverで上下矢印切り替え</p>
-    </form>
-
-    <table>
-        <tr>
-            <th>ユーザID</th>
-            <th>ユーザ名</th>
-            <th>メールアドレス</th>
-            <th>登録日</th>
-            <th>更新日時</th>
-            <th>削除日時</th>
-        </tr>
-        <tr>
-            <!-- <td>{{ .id }}</td> -->
-            <!-- <td>{{ .name }}</td>
-            <td>{{ .mail }}</td>
-            <td>{{ .re_data }}</td>
-            <td>{{ .change }}</td>
-            <td>{{ .del }}</td> -->
-        </tr>
-    </table>
+    </form> -->
+    {% for rec in model_data  %}
+    <div class="modelBox">
+        <div class="modelBoxImg">
+            <p><img src='static/img/{{rec["model_image"]}}' alt=""></p>
+        </div>
+        <div class="modelBoxMain">
+            <div class="modelBoxTitle">
+                <h3>{{rec["name"]}}</h3>
+            </div>
+            <div class="modelBoxButton">
+                <div class="modelButtonDetail">
+                    <a href="http://127.0.0.1:5000/model/detail/{{ rec['id'] }}">詳細</a>
+                </div>
+                <div class="modelButtonDelete">
+                    <a href="http://127.0.0.1:5000/model/delete/{{ rec['id'] }}">削除</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 {% endblock %}

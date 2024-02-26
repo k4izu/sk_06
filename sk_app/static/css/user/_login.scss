@@ -1,0 +1,9 @@
+@use "_variable.scss" as *;
+
+#loginWrapper{
+    margin: 3% 20%;
+    input{
+        display: block;
+        border: $borderBlack;
+    }
+}

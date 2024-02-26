@@ -1,0 +1,19 @@
+{% extends "base_user_login.html" %}
+{% block title %}会員登録完了{% endblock %}
+{% block content %}
+<div id="signupWrapper">
+    <div class="signupTitle">
+        <h2>会員登録が完了しました</h2>
+    </div>
+    <div class="signupMain">
+        <div class="signupText">
+            <h3>早速〇〇を使ってみましょう</h3>
+        </div>
+        <div class="signupButton">
+            <form action="/user">
+                <button type="submit">ホームへ</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
