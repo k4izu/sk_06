@@ -1,5 +1,31 @@
 {% extends "base_user.html" %}
 {% block title %}設定{% endblock %}
 {% block content %}
-
+<div id="settingsWrapper">
+    <div class="settingsTitle">
+        <h2>マイページ</h2>
+    </div>
+    <div class="settingsMain">
+        <div class="settingsName">
+            <p>名前</p>
+            <p>{{ user_data["user_name"] }}</p>
+        </div>
+        <div class="settingsEmail">
+            <p>メールアドレス</p>
+            <p>{{ user_data["user_email"] }}</p>
+        </div>
+        <div class="settingsPass">
+            <p>パスワード</p>
+            <p>＊＊＊＊＊＊</p>
+        </div>
+    </div>
+    <div class="settingsButtonBox">
+        <div class="logoutButton buttonBoxB">
+            <p><a href="/logout">ログアウト</a></p>
+        </div>
+        <div class="deleteButton buttonBoxB">
+            <p><a href="/settings/checkdel">アカウント削除</a></p>
+        </div>
+    </div>
+</div>
 {% endblock %}

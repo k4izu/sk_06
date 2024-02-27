@@ -72,7 +72,28 @@ main{
 }
 .errMsg{
     color: $red;
+    font-weight: $bold;
 }
 input[type="text"]{
     border: $borderBlack;
+}
+.buttonBoxA,.buttonBoxB p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a,button{
+        // border: $borderBlack;
+        padding: 1.2% 0;
+        width: 20vw;
+        border-radius: 1rem;
+        // background-color: $buttonBg01;
+        // color: $buttonCl01;
+        font-weight: $bold;
+        text-align: center;
+        transition: $buttonTrans;
+        &:hover{
+            // background-color: $buttonHvBg01;
+            // color: $buttonHvCl01;
+        }
+    }
 }

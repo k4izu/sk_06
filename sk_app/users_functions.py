@@ -15,8 +15,8 @@ def session_check():
         # === 必要なデータのみ抽出
         res={
             "user_id":user_session["id"],
-            "user_name":user_session["name"]
-            # "user_email":user_session["email"]
+            "user_name":user_session["name"],
+            "user_email":user_session["email"]
         }
     # === 存在しない場合はログインページへ
     else:

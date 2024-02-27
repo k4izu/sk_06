@@ -90,7 +90,26 @@ def model_detail(id):
 # ==========================================================
 #   モデル削除              ('/model/delete/<scode>')
 # ==========================================================
-@app.route("/model/delete/<scode>",methods=["get"])
-def model_delete(scode):
-    test=scode
+@app.route("/model/delete/<id>",methods=["get"])
+def model_delete(id):
+    test=id
     return render_template(user+"model.html",test=test)
+
+
+# ==========================================================
+#   モデル追加              ('/model/add')
+# ==========================================================
+@app.route("/model_add",methods=["get"])
+def model_add():
+    # === sessionが無ければloginページへ
+    user_data=functions.session_check()
+    if user_data=="FALSE":
+        return redirect('/login')
+    return render_template(user+'model_add.html',err_msg=err_msg,model_form=model_form)
+
+# ==========================================================
+#   モデル追加              ('/model/add/comp')
+# ==========================================================
+@app.route("/model_add_comp",methods=["post"])
+def model_add_comp():
+    return render_template(user+'model_add_comp.html')

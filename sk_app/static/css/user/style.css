@@ -87,18 +87,140 @@ main {
 
 .errMsg {
   color: #ff0000;
+  font-weight: 600;
 }
 
 input[type=text] {
   border: solid 1px #000000;
 }
 
-#loginWrapper {
+.buttonBoxA, .buttonBoxB p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonBoxA a, .buttonBoxA button, .buttonBoxB p a, .buttonBoxB p button {
+  padding: 1.2% 0;
+  width: 20vw;
+  border-radius: 1rem;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.2s;
+}
+#loginWrapper, #signupWrapper {
   margin: 3% 20%;
 }
-#loginWrapper input {
-  display: block;
+#loginWrapper .loginTitle, #loginWrapper .signupTitle, #signupWrapper .loginTitle, #signupWrapper .signupTitle {
+  margin: 3% 0;
+  text-align: center;
+}
+#loginWrapper .loginTitle span, #loginWrapper .signupTitle span, #signupWrapper .loginTitle span, #signupWrapper .signupTitle span {
+  font-style: italic;
+  margin: 0 1%;
+}
+#loginWrapper .loginForm, #loginWrapper .signupForm, #signupWrapper .loginForm, #signupWrapper .signupForm {
+  width: 100%;
+}
+#loginWrapper .loginForm .loginText, #loginWrapper .loginForm .signupText, #loginWrapper .signupForm .loginText, #loginWrapper .signupForm .signupText, #signupWrapper .loginForm .loginText, #signupWrapper .loginForm .signupText, #signupWrapper .signupForm .loginText, #signupWrapper .signupForm .signupText {
+  text-align: center;
+  margin: 2%;
+}
+#loginWrapper .loginForm .loginText div, #loginWrapper .loginForm .signupText div, #loginWrapper .signupForm .loginText div, #loginWrapper .signupForm .signupText div, #signupWrapper .loginForm .loginText div, #signupWrapper .loginForm .signupText div, #signupWrapper .signupForm .loginText div, #signupWrapper .signupForm .signupText div {
+  margin: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 8vh;
+  align-items: center;
+  margin: 3% 10%;
+}
+#loginWrapper .loginForm .loginText div a, #loginWrapper .loginForm .signupText div a, #loginWrapper .signupForm .loginText div a, #loginWrapper .signupForm .signupText div a, #signupWrapper .loginForm .loginText div a, #signupWrapper .loginForm .signupText div a, #signupWrapper .signupForm .loginText div a, #signupWrapper .signupForm .signupText div a {
+  margin: 0 0 0 auto;
+  padding: 1vh;
+}
+#loginWrapper .loginForm .loginText div p, #loginWrapper .loginForm .signupText div p, #loginWrapper .signupForm .loginText div p, #loginWrapper .signupForm .signupText div p, #signupWrapper .loginForm .loginText div p, #signupWrapper .loginForm .signupText div p, #signupWrapper .signupForm .loginText div p, #signupWrapper .signupForm .signupText div p {
+  width: 40%;
+  justify-content: center;
+}
+#loginWrapper .loginForm .loginText div input, #loginWrapper .loginForm .signupText div input, #loginWrapper .signupForm .loginText div input, #loginWrapper .signupForm .signupText div input, #signupWrapper .loginForm .loginText div input, #signupWrapper .loginForm .signupText div input, #signupWrapper .signupForm .loginText div input, #signupWrapper .signupForm .signupText div input {
   border: solid 1px #000000;
+  border-radius: 1rem;
+  width: 40%;
+  padding: 0.25% 3%;
+  text-align: left;
+  margin: 0 7%;
+}
+#loginWrapper .loginForm .loginButton button, #loginWrapper .loginForm .signupButton button, #loginWrapper .signupForm .loginButton button, #loginWrapper .signupForm .signupButton button, #signupWrapper .loginForm .loginButton button, #signupWrapper .loginForm .signupButton button, #signupWrapper .signupForm .loginButton button, #signupWrapper .signupForm .signupButton button {
+  border: solid 1px #000000;
+  background-color: #99BA7E;
+  color: #e4e4e4;
+}
+#loginWrapper .loginForm .loginButton button:hover, #loginWrapper .loginForm .signupButton button:hover, #loginWrapper .signupForm .loginButton button:hover, #loginWrapper .signupForm .signupButton button:hover, #signupWrapper .loginForm .loginButton button:hover, #signupWrapper .loginForm .signupButton button:hover, #signupWrapper .signupForm .loginButton button:hover, #signupWrapper .signupForm .signupButton button:hover {
+  background-color: #738d5e;
+  color: #c7c7c7;
+}
+#loginWrapper .signupLink, #signupWrapper .signupLink {
+  margin-top: 3%;
+}
+#loginWrapper .signupLink p, #signupWrapper .signupLink p {
+  text-align: right;
+}
+#loginWrapper .signupLink p a, #signupWrapper .signupLink p a {
+  color: #4e7eb8;
+  font-weight: 600;
+}
+#loginWrapper .signupLink p a:hover, #signupWrapper .signupLink p a:hover {
+  color: #3a5d88;
+}
+#loginWrapper .loginPageLink, #signupWrapper .loginPageLink {
+  margin-top: 3%;
+}
+#loginWrapper .loginPageLink p a, #signupWrapper .loginPageLink p a {
+  border: solid 1px #000000;
+  background-color: #afa177;
+  color: #e4e4e4;
+}
+#loginWrapper .loginPageLink p a:hover, #signupWrapper .loginPageLink p a:hover {
+  background-color: #544d3a;
+  color: #c7c7c7;
+}
+#loginWrapper .signupMain .signupText h3, #signupWrapper .signupMain .signupText h3 {
+  text-align: center;
+}
+#loginWrapper .signupMain .signupText div, #signupWrapper .signupMain .signupText div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#loginWrapper .signupMain .signupText div p, #signupWrapper .signupMain .signupText div p {
+  width: 30%;
+  margin: 2% 10%;
+}
+#loginWrapper .signupMain .signupButton, #signupWrapper .signupMain .signupButton {
+  margin-top: 5%;
+}
+#loginWrapper .signupMain .signupButton .signupButtonComp, #loginWrapper .signupMain .signupButton .signupButtonUsers, #signupWrapper .signupMain .signupButton .signupButtonComp, #signupWrapper .signupMain .signupButton .signupButtonUsers {
+  margin-top: 3%;
+}
+#loginWrapper .signupMain .signupButton .signupButtonComp p a, #loginWrapper .signupMain .signupButton .signupButtonUsers p a, #signupWrapper .signupMain .signupButton .signupButtonComp p a, #signupWrapper .signupMain .signupButton .signupButtonUsers p a {
+  border: solid 1px #000000;
+  background-color: #99BA7E;
+  color: #e4e4e4;
+}
+#loginWrapper .signupMain .signupButton .signupButtonComp p a:hover, #loginWrapper .signupMain .signupButton .signupButtonUsers p a:hover, #signupWrapper .signupMain .signupButton .signupButtonComp p a:hover, #signupWrapper .signupMain .signupButton .signupButtonUsers p a:hover {
+  background-color: #738d5e;
+  color: #c7c7c7;
+}
+#loginWrapper .signupMain .signupButton .signupButtonMain, #signupWrapper .signupMain .signupButton .signupButtonMain {
+  margin-top: 3%;
+}
+#loginWrapper .signupMain .signupButton .signupButtonMain p a, #signupWrapper .signupMain .signupButton .signupButtonMain p a {
+  border: solid 1px #000000;
+  background-color: #afa177;
+  color: #e4e4e4;
+}
+#loginWrapper .signupMain .signupButton .signupButtonMain p a:hover, #signupWrapper .signupMain .signupButton .signupButtonMain p a:hover {
+  background-color: #544d3a;
+  color: #c7c7c7;
 }
 
 #homeWrapper {
@@ -123,7 +245,7 @@ input[type=text] {
   padding-left: 1%;
 }
 #homeWrapper .homeMain .homeInfo .homeInfoBox .homeInfoText {
-  height: 15vh;
+  height: 10vh;
   padding-left: 2%;
 }
 #homeWrapper .homeMain .homeInfo .homeInfoBox:nth-child(2) {
@@ -177,4 +299,61 @@ input[type=text] {
   display: block;
   border: solid 1px #000000;
   margin: 5% 0;
+}
+#settingsWrapper {
+  margin-top: 3%;
+}
+#settingsWrapper .settingsTitle {
+  margin: 3% 0;
+  text-align: center;
+}
+#settingsWrapper .settingsMain div {
+  display: flex;
+  align-items: center;
+}
+#settingsWrapper .settingsMain div p {
+  width: 15vw;
+  margin: 1% auto;
+  text-align: left;
+}
+#settingsWrapper .settingsMain div h3 {
+  text-align: center;
+  width: 50vw;
+  margin: 1% auto;
+}
+#settingsWrapper .settingsButtonBox .settingsButton {
+  margin-top: 3%;
+}
+#settingsWrapper .settingsButtonBox .settingsButton p a {
+  border: solid 1px #000000;
+  background-color: #99BA7E;
+  color: #e4e4e4;
+}
+#settingsWrapper .settingsButtonBox .settingsButton p a:hover {
+  background-color: #738d5e;
+  color: #c7c7c7;
+}
+#settingsWrapper .settingsButtonBox .logoutButton {
+  margin-top: 3%;
+}
+#settingsWrapper .settingsButtonBox .logoutButton p a {
+  border: solid 1px #000000;
+  background-color: #afa177;
+  color: #e4e4e4;
+}
+#settingsWrapper .settingsButtonBox .logoutButton p a:hover {
+  background-color: #544d3a;
+  color: #c7c7c7;
+}
+#settingsWrapper .settingsButtonBox .deleteButton {
+  margin-top: 3%;
+}
+#settingsWrapper .settingsButtonBox .deleteButton p a {
+  border: solid 1px #000000;
+  background-color: #b95454;
+  color: #e4e4e4;
+}
+#settingsWrapper .settingsButtonBox .deleteButton p a:hover {
+  background-color: #763e3e;
+  color: #c7c7c7;
 }/*# sourceMappingURL=style.css.map */

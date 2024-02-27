@@ -6,6 +6,9 @@
         <h2>3Dモデル一覧</h2>
     </div>
     <div class="modelMain">
+        {% if model_data=="" %}
+        <p>modelは登録されていません</p>
+        {% else %}
         {% for rec in model_data  %}
         <div class="modelBox">
             <div class="modelBoxImg">
@@ -26,6 +29,7 @@
             </div>
         </div>
         {% endfor %}
+        {% endif %}
         <div>
 
         </div>

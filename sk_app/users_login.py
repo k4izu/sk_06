@@ -32,10 +32,11 @@ def index():
 
 # ==========================================================
 #   ログイン確認             ("/login/check")
-#   OK："/user" NO："login.html"
+#   OK："/" NO："login.html"
 # ==========================================================
 @app.route("/login/check", methods=["POST"])
-def login_check():  
+def login_check():
+    err_msg={}  
     # ===== データ受信
     login_form = request.form
     # ===== 入力項目TBL 
@@ -79,7 +80,7 @@ def login_check():
             if flg==1:
                 err_msg["all"]=""
                 # === /userへ
-                return redirect('/user') 
+                return redirect('/') 
             else:
                 err_msg["all"]="メールアドレスまたはパスワードが間違っています"
                 return render_template(user + "login.html",err_msg=err_msg, login_form=login_form)
@@ -121,6 +122,7 @@ def signup():
 # ==========================================================
 @app.route("/signup/check", methods=["POST"])
 def signup_check():
+    err_msg={}
     # ===== データ受信
     signup_form = request.form
     # ===== 入力項目TBL
@@ -194,7 +196,6 @@ def signup_comp():
             dbop=DbOp('users')
             result=dbop.selectAll()
             dbop.close()
-            flg=0
             for res_data in result:
                 # ==== データが含まれているか確認（含まれていればflg=1）
                 if (res_data["email"] ==signup_form["email"]) and (res_data["password"] ==signup_form["password"]):
@@ -238,3 +239,49 @@ def reset_password():
 @app.route("/login/reset/password/comp", methods=["get"])
 def reset_password_comp():
     return render_template(user+"reset_password_comp.html",err_msg=err_msg,reset_form=reset_form)
+
+
+
+# # ==========================================================
+# #   アカウント削除確認              ('/settings/delete')
+# # ==========================================================
+# @app.route("/settings/delete", methods=["get"])
+# def settings_delete():
+#     # === sessionが無ければloginページへ
+#     user_data=functions.session_check()
+#     if user_data=="FALSE":
+#         return redirect('/login')
+#     return render_template(user+'settings_delete.html')
+
+
+# ==========================================================
+#   アカウント削除                  ('/settings/delete')
+# ==========================================================
+@app.route("/settings/delete/acount", methods=["get"])
+def settings_delete_acount():
+    # === sessionが無ければloginページへ
+    user_data=functions.session_check()
+    if user_data=="FALSE":
+        return redirect('/login')
+    
+    sql1='delete_date = "'+'"'
+    sql2='id = "'+user_data['id']+'"'
+    return redirect('/login')
+    # try:
+    #     # ====== 削除処理
+    #     dbop=DbOp('lunch')
+    #     dbop.delTbl(sql1,sql2)
+    #     dbop.close()
+        
+    #     # ===== vtblで呼び出しやすいようにscode格納
+    #     result["scode"]=result['delkey']
+    #     # ===== checkdel.htmlへ
+    #     return render_template('resdel.html',result=result,vtbl=vtbl)
+    # except mysql.connector.errors.ProgrammingError as e:
+    #     print('***DB接続エラー***')        #===pass間違いなど
+    #     print(type(e))  #===例外名出力
+    #     print(e)        #===例外内容出力
+    # except Exception as e:
+    #     print('***システム運行プログラムエラー***') #===未知のエラー
+    #     print(type(e))  #===例外名出力
+    #     print(e)        #===例外内容出力

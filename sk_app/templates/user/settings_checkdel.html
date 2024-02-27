@@ -1,0 +1,22 @@
+{% extends "base_user.html" %}
+{% block title %}会員登録完了{% endblock %}
+{% block content %}
+<div id="settingsWrapper">
+    <div class="settingsTitle">
+        <h2>本当に削除しますか</h2>
+    </div>
+    <div class="settingsMain">
+        <div class="settingsText">
+            <h3>下記ボタンを押下するとアカウントが削除されます</h3>
+        </div>
+    </div>
+    <div class="settingsButtonBox">
+        <div class="deleteButton buttonBoxB">
+            <p><a href="/settings/delete">削除</a></p>
+        </div>
+        <div class="settingsButton buttonBoxB">
+            <p><a href="/settings">戻る</a></p>
+        </div>    
+    </div>
+</div>
+{% endblock %}

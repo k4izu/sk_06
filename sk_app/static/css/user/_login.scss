@@ -1,9 +1,133 @@
 @use "_variable.scss" as *;
 
-#loginWrapper{
+#loginWrapper,#signupWrapper{
     margin: 3% 20%;
-    input{
-        display: block;
-        border: $borderBlack;
+    .loginTitle,.signupTitle{
+        margin: 3% 0;
+        text-align: center;
+        // font-weight: $bold;
+        span{
+            font-style: italic;
+            margin: 0 1%;
+        }
+    }
+    .loginForm,.signupForm{
+        width: 100%;
+        .loginText,.signupText{
+            text-align: center;
+            margin: 2%;
+            // height: 40vh;
+            div{
+                margin: 3%;
+                display: flex;
+                flex-wrap: wrap;
+                // padding-bottom: 3%;
+                height: 8vh;
+                align-items: center;
+                margin: 3% 10%;
+                a{
+                    margin: 0 0 0 auto;
+                    padding: 1vh;
+                }
+                p{
+                    width: 40%;
+                    justify-content: center;
+                }
+                input{
+                    border: $borderBlack;
+                    border-radius: 1rem;
+                    width: 40%;
+                    padding: 0.25% 3%;
+                    text-align: left;
+                    margin: 0 7%;
+                }
+            }
+        }
+        .loginButton,.signupButton{
+            button{
+                border: $borderBlack;
+                // width: 20vw;
+                background-color: $buttonBg01;
+                color: $buttonCl01;
+                &:hover{
+                    background-color: $buttonHvBg01;
+                    color: $buttonHvCl01;
+                }
+            }
+        }
+    }
+    .signupLink{
+        margin-top: 3%;
+        p{
+            text-align: right;
+            a{
+                color: $linkColor;
+                font-weight: $bold;
+                &:hover{
+                    color: $linkHvColor;
+                }
+            }
+        }
+    }
+    .loginPageLink{
+        margin-top: 3%;
+        p{
+            a{
+                border: $borderBlack;
+                background-color: $buttonBg02;
+                color: $buttonCl01;
+                &:hover{
+                    background-color: $buttonHvBg02;
+                    color: $buttonHvCl01;
+                }
+            }
+        }
+    }
+    .signupMain{
+        .signupText{
+            h3{
+                text-align: center;
+            }
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p{
+                    width: 30%;
+                    margin: 2% 10%;
+                }
+            }
+        }
+        .signupButton{
+            margin-top: 5%;
+            .signupButtonComp,.signupButtonUsers{
+                margin-top: 3%;
+                p{
+                    a{
+                        border: $borderBlack;
+                        background-color: $buttonBg01;
+                        color: $buttonCl01;
+                        &:hover{
+                            background-color: $buttonHvBg01;
+                            color: $buttonHvCl01;
+                        }
+                    }
+                }
+            }
+            .signupButtonMain{
+                margin-top: 3%;
+                p{
+                    a{
+                        border: $borderBlack;
+                        background-color: $buttonBg02;
+                        color: $buttonCl01;
+                        &:hover{
+                            background-color: $buttonHvBg02;
+                            color: $buttonHvCl01;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

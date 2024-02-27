@@ -7,14 +7,25 @@
     </div>
     <div class="signupMain">
         <div class="signupText">
-            
+            <div class="signupName">
+                <p>名前</p>
+                <p>{{signup_form.signup_name}}</p>
+            </div>
+            <div class="signupEmail">
+                <p>メールアドレス</p>
+                <p>{{signup_form.signup_email}}</p>
+            </div>
+            <div class="signuppass">
+                <p>パスワード</p>
+                <p>＊＊＊＊＊＊</p>
+            </div>
         </div>
         <div class="signupButton">
-            <div class="signupButtonMain">
-                <a href="/signup">登録情報を見直す</a>
+            <div class="signupButtonComp buttonBoxB">
+                <p><a href="/signup/comp">登録</a></p>
             </div>
-            <div class="signupButtonComp">
-                <a href="/signup/comp">登録</a>
+            <div class="signupButtonMain buttonBoxB">
+                <p><a href="/signup">登録情報を見直す</a></p>
             </div>
         </div>
     </div>
