@@ -7,6 +7,9 @@
     </div>
     {% for rec in model_data  %}
     <div class="modelMain">
+        <div class="modelText">
+            <p>本当にモデルを削除しますか？</p>
+        </div>
         <div class="modelDetailMain">
             <div class="modelDetailImg">
                 <p><img src='../../static/uploads/img/{{rec["model_image"]}}' alt=""></p>
@@ -22,11 +25,11 @@
         </div>
     </div>
     <div class="modelBoxButton">
+        <div class="modelButtonDelete buttonBoxB">
+            <p><a href="/model/delete/comp/{{ rec['id'] }}">削除</a></p>
+        </div>
         <div class="modelButtonMain buttonBoxB">
             <p><a href="/model">戻る</a>
-        </div>
-        <div class="modelButtonDelete buttonBoxB">
-            <p><a href="/model/delete/{{ rec['id'] }}">削除</a></p>
         </div>
     </div>
     {% endfor %}

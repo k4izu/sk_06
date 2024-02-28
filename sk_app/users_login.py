@@ -243,30 +243,18 @@ def reset_password_comp():
 
 
 # # ==========================================================
-# #   アカウント削除確認              ('/settings/delete')
+# #   アカウント削除                  ('/settings/delete')
 # # ==========================================================
-# @app.route("/settings/delete", methods=["get"])
-# def settings_delete():
+# @app.route("/settings/delete/acount", methods=["get"])
+# def settings_delete_acount():
 #     # === sessionが無ければloginページへ
 #     user_data=functions.session_check()
 #     if user_data=="FALSE":
 #         return redirect('/login')
-#     return render_template(user+'settings_delete.html')
-
-
-# ==========================================================
-#   アカウント削除                  ('/settings/delete')
-# ==========================================================
-@app.route("/settings/delete/acount", methods=["get"])
-def settings_delete_acount():
-    # === sessionが無ければloginページへ
-    user_data=functions.session_check()
-    if user_data=="FALSE":
-        return redirect('/login')
     
-    sql1='delete_date = "'+'"'
-    sql2='id = "'+user_data['id']+'"'
-    return redirect('/login')
+#     sql1='delete_date = "'+'"'
+#     sql2='id = "'+user_data['id']+'"'
+#     return redirect('/login')
     # try:
     #     # ====== 削除処理
     #     dbop=DbOp('lunch')

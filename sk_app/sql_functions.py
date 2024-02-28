@@ -123,7 +123,7 @@ class DbOp:
 
     # ===== DB接続 & データ変更
     def updTbl(self,val1,val2):
-        sql ='UPDATE ' + self.__table + ' SET ' + val1 + 'WHERE'
+        sql ='UPDATE ' + self.__table + ' SET ' + val1 + ' WHERE '
         sql+=val2
         sql+=';'
 

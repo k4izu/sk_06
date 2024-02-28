@@ -33,6 +33,12 @@ header #header #headIcon {
   padding: 1%;
   margin: 1%;
 }
+header #header #headIcon h1 {
+  width: 10vw;
+}
+header #header #headIcon h1 img {
+  max-width: 100%;
+}
 header #header #headUser {
   padding: 1%;
   border: solid 1px #000000;
@@ -107,6 +113,22 @@ input[type=text] {
   text-align: center;
   transition: 0.2s;
 }
+
+.buttonBoxC p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+.buttonBoxC p a, .buttonBoxC p button {
+  padding: 1.2% 0;
+  width: 10vw;
+  border-radius: 1rem;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.2s;
+}
+
 #loginWrapper, #signupWrapper {
   margin: 3% 20%;
 }
@@ -236,6 +258,7 @@ input[type=text] {
 #homeWrapper .homeMain .homeInfo .homeInfoBox {
   border: solid 1px #000000;
   position: relative;
+  margin-bottom: -1px;
 }
 #homeWrapper .homeMain .homeInfo .homeInfoBox .homeInfoTitle {
   border-bottom: solid 1px #000000;
@@ -246,6 +269,7 @@ input[type=text] {
 }
 #homeWrapper .homeMain .homeInfo .homeInfoBox .homeInfoText {
   height: 10vh;
+  padding-top: 1%;
   padding-left: 2%;
 }
 #homeWrapper .homeMain .homeInfo .homeInfoBox:nth-child(2) {
@@ -259,19 +283,30 @@ input[type=text] {
 #modelWrapper .modelTitle {
   font-weight: 600;
 }
+#modelWrapper .mT2 {
+  text-align: center;
+}
 #modelWrapper .modelMain {
   display: flex;
-  margin: 5%;
+  flex-wrap: wrap;
+  margin: 5% 10%;
+  border-collapse: collapse;
 }
 #modelWrapper .modelMain .modelBox {
   width: 45%;
-  border: solid 1px #000000;
+  min-height: 25vh;
+  border-top: 5px solid #beb4a4;
+  margin: 1%;
+  background-color: #ece8e3;
   display: flex;
   flex-wrap: wrap;
 }
 #modelWrapper .modelMain .modelBox .modelBoxImg {
   width: 44%;
   margin: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #modelWrapper .modelMain .modelBox .modelBoxImg p img {
   max-width: 100%;
@@ -300,6 +335,137 @@ input[type=text] {
   border: solid 1px #000000;
   margin: 5% 0;
 }
+#modelWrapper .modelMain .modelBox .popup {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  background: black;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#modelWrapper .modelMain .modelBox .content {
+  background: #fff;
+  padding: 30px;
+  width: 50%;
+}
+#modelWrapper .modelMain .modelBox .show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#modelWrapper .modelMain .modelDetailMain {
+  background-color: #ece8e3;
+  display: flex;
+}
+#modelWrapper .modelMain .modelDetailMain .modelDetailImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin: 5%;
+}
+#modelWrapper .modelMain .modelDetailMain .modelDetailImg p img {
+  max-width: 100%;
+  max-height: 100%;
+}
+#modelWrapper .modelMain .modelDetailMain .modelDetailText {
+  width: 40%;
+  margin: 5%;
+}
+#modelWrapper .modelMain .modelDetailMain .modelDetailText .modelDetailTitle h3 {
+  font-weight: 600;
+  border-bottom: solid 1px #000000;
+  font-size: 1.8rem;
+}
+#modelWrapper .modelMain .modelDetailMain .modelDetailText .modelDetailInfo p {
+  margin: 4% 3%;
+}
+#modelWrapper .modelMain .modelText {
+  margin: 1%;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ff0000;
+}
+#modelWrapper .modelAddButton {
+  margin-top: 3%;
+}
+#modelWrapper .modelAddButton p a {
+  border: solid 1px #000000;
+  background-color: #99BA7E;
+  color: #e4e4e4;
+}
+#modelWrapper .modelAddButton p a:hover {
+  background-color: #738d5e;
+  color: #c7c7c7;
+}
+#modelWrapper .modelAddButton button {
+  border: solid 1px #000000;
+  background-color: #99BA7E;
+  color: #e4e4e4;
+}
+#modelWrapper .modelAddButton button:hover {
+  background-color: #738d5e;
+  color: #c7c7c7;
+}
+#modelWrapper .modelMainButton, #modelWrapper .modelButtonDetail, #modelWrapper .modelButtonMain {
+  margin-top: 3%;
+}
+#modelWrapper .modelMainButton p a, #modelWrapper .modelButtonDetail p a, #modelWrapper .modelButtonMain p a {
+  border: solid 1px #000000;
+  background-color: #afa177;
+  color: #e4e4e4;
+}
+#modelWrapper .modelMainButton p a:hover, #modelWrapper .modelButtonDetail p a:hover, #modelWrapper .modelButtonMain p a:hover {
+  background-color: #544d3a;
+  color: #c7c7c7;
+}
+#modelWrapper .modelButtonDelete {
+  margin-top: 3%;
+}
+#modelWrapper .modelButtonDelete p a {
+  border: solid 1px #000000;
+  background-color: #b95454;
+  color: #e4e4e4;
+}
+#modelWrapper .modelButtonDelete p a:hover {
+  background-color: #763e3e;
+  color: #c7c7c7;
+}
+#modelWrapper .modelForm {
+  width: 100%;
+}
+#modelWrapper .modelForm .modelText {
+  text-align: center;
+  margin: 2%;
+}
+#modelWrapper .modelForm .modelText div {
+  display: flex;
+  flex-wrap: wrap;
+  height: 8vh;
+  align-items: center;
+  margin: 3% 10%;
+}
+#modelWrapper .modelForm .modelText div a {
+  margin: 0 0 0 auto;
+  padding: 1vh;
+}
+#modelWrapper .modelForm .modelText div p {
+  width: 40%;
+  justify-content: center;
+}
+#modelWrapper .modelForm .modelText div input[type=text] {
+  border: solid 1px #000000;
+}
+#modelWrapper .modelForm .modelText div input {
+  border-radius: 1rem;
+  width: 40%;
+  padding: 0.25% 3%;
+  text-align: left;
+  margin: 0 7%;
+}
+
 #settingsWrapper {
   margin-top: 3%;
 }

@@ -3,8 +3,42 @@
 {% block content %}
 <div id="modelWrapper">
     <div class="modelTitle">
-        <h2>3Dモデル詳細</h2>
+        <h2>3Dモデル登録</h2>
     </div>
-    
+    <div class="modelForm">
+        <form action="/model/add/comp" method="post"  enctype="multipart/form-data">
+            <div class="modelText">
+                <a class="errMsg">{{err_msg.all}}</a>
+                <div class="modelName">
+                    <p>モデル名</p>
+                    <input type="text" name="model_name" value={{model_form.model_name}}>
+                    <a class="errMsg">{{err_msg.model_name}}</a>
+                </div>
+                <div class="modelImage">
+                    <p>モデル画像</p>
+                    <input type="file" name="model_image" value={{model_form.model_image}} accept="image/png, image/jpeg" multiple>
+                    <a class="errMsg">{{err_msg.model_image}}</a>
+                </div>
+                <div class="modelFileName">
+                    <p>モデルデータ</p>
+                    <input type="file" name="model_file_name" value={{model_form.model_file_name}} accept="fbx" multiple>
+                    <a class="errMsg">{{err_msg.model_file_name}}</a>
+                </div>
+                <div class="modelInfo">
+                    <p>モデル情報</p>
+                    <input type="text" name="model_info" value={{model_form.model_info}}>
+                    <a class="errMsg">{{err_msg.model_info}}</a>
+                </div>
+            </div>
+            <div class="modelAddButton buttonBoxA">
+                <button type="submit">モデル登録</button>
+            </div>
+        </form>
+    </div>
+    <div class="modelButton buttonBoxB">
+        <div class="modelMainButton">
+            <p><a href="/model">戻る</a></p>
+        </div>
+    </div>
 </div>
 {% endblock %}

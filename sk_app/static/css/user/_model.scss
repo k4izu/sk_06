@@ -6,17 +6,31 @@
     .modelTitle{
         font-weight: $bold;
     }
+    .mT2{
+        text-align: center;
+    }
     .modelMain{
         display: flex;
-        margin: 5%;
+        flex-wrap: wrap;
+        margin: 5% 10%;
+        border-collapse: collapse;
         .modelBox{
             width: 45%;
-            border: $borderBlack;
+            min-height: 25vh;
+            // border: solid 2px #000000;
+            // margin-bottom: -1px;
+            // margin-right: -1px;
+            border-top: $modelBorder;
+            margin: 1%;
+            background-color: $modelBg;
             display: flex;
             flex-wrap: wrap;
             .modelBoxImg{
                 width: 44%;
                 margin: 3%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 p{
                     img{
                         max-width: 100%;
@@ -47,6 +61,148 @@
                             }
                         }
                     }
+                }
+            }
+            .popup{
+                display: none;
+                height: 100vh;
+                width: 100%;
+                background: black;
+                opacity: 0.7;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+            .content{
+                background: #fff;
+                padding: 30px;
+                width: 50%;
+              }
+            .show{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }  
+        }
+        .modelDetailMain{
+            background-color: $modelBg;
+            display: flex;
+            .modelDetailImg{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40%;
+                margin: 5%;
+                p{
+                    img{
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+                }
+            }
+            .modelDetailText{
+                width: 40%;
+                margin: 5%;
+                .modelDetailTitle{
+                    h3{
+                        font-weight: $bold;
+                        border-bottom: $borderBlack;
+                        font-size: 1.8rem;
+                    }
+                }
+                .modelDetailInfo{
+                    p{
+                        margin: 4% 3%;
+                    }
+                }
+            }
+        }
+        .modelText{
+            margin: 1%;
+            font-size: 1.8rem;
+            font-weight: $bold;
+            color: $red;
+        }
+    }
+    .modelAddButton{
+        margin-top: 3%;
+        p{
+            a{
+                border: $borderBlack;
+                background-color: $buttonBg01;
+                color: $buttonCl01;
+                &:hover{
+                    background-color: $buttonHvBg01;
+                    color: $buttonHvCl01;
+                }
+            }
+        }
+        button{
+            border: $borderBlack;
+            background-color: $buttonBg01;
+            color: $buttonCl01;
+            &:hover{
+                background-color: $buttonHvBg01;
+                color: $buttonHvCl01;
+            }
+        }
+    }
+    .modelMainButton,.modelButtonDetail,.modelButtonMain{
+        margin-top: 3%;
+        p{
+            a{
+                border: $borderBlack;
+                background-color: $buttonBg02;
+                color: $buttonCl01;
+                &:hover{
+                    background-color: $buttonHvBg02;
+                    color: $buttonHvCl01;
+                }
+            }
+        }
+    }
+    .modelButtonDelete{
+        margin-top: 3%;
+        p{
+            a{
+                border: $borderBlack;
+                background-color: $buttonBg03;
+                color: $buttonCl01;
+                &:hover{
+                    background-color: $buttonHvBg03;
+                    color: $buttonHvCl01;
+                }
+            }
+        }
+    }
+    .modelForm{
+        width: 100%;
+        .modelText{
+            text-align: center;
+            margin: 2%;
+            div{
+                display: flex;
+                flex-wrap: wrap;
+                height: 8vh;
+                align-items: center;
+                margin: 3% 10%;
+                a{
+                    margin: 0 0 0 auto;
+                    padding: 1vh;
+                }
+                p{
+                    width: 40%;
+                    justify-content: center;
+                }
+                input[type="text"]{
+                    border: $borderBlack;
+                }
+                input{
+                    border-radius: 1rem;
+                    width: 40%;
+                    padding: 0.25% 3%;
+                    text-align: left;
+                    margin: 0 7%;
                 }
             }
         }

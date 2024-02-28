@@ -15,6 +15,7 @@
             .homeInfoBox{
                 border: $borderBlack;
                 position: relative;
+                margin-bottom: -1px;
                 .homeInfoTitle{
                     border-bottom: $borderBlack;
                     height: 5vh;
@@ -24,6 +25,7 @@
                 }
                 .homeInfoText{
                     height: 10vh;
+                    padding-top: 1%;
                     padding-left: 2%
                 }
             }
