@@ -15,19 +15,28 @@ users_sql_functions=Blueprint('users_sql_functions',__name__)
 # パスの設定
 admin = "admin/"
 
+# 管理者ログイン画面
+@app.route('/adminlogin')
+def login():
+
+    # IDとパスワード参照後、 １ だったら admin/index.html へ
+
+
+    return render_template(admin + 'login.html')
+
 #「/admin」へアクセスがあった場合に、「admin/index.html」へ
 @app.route("/admin")
 def admin_index():
+
+    
+
     return render_template(admin + "index.html")
 
-@app.route('/adminlogin')
-def login():
-    return render_template(admin + 'login.html')
 
+# userdata（IDやパスワードなど）の全件抽出
 @app.route('/user_data')
 def userdata():
 
-    # sql="select * from users"
     # === 配列格納
     user_data={}
     try:
@@ -49,10 +58,11 @@ def userdata():
 
     return render_template(admin + 'user_data.html',user_data=user_data)
 
+
+# userの使用デバイス全件抽出
 @app.route('/user_devices')
 def user_devices():
     
-    # sql="select * from devices"
     # === 配列格納
     devices_data={}
     try:
@@ -75,6 +85,7 @@ def user_devices():
     return render_template(admin + 'user_devices.html')
 
 
+# データベース接続関係
 class DbOp:
     # ===== コンストラクタ =============
         def __init__(self,table):

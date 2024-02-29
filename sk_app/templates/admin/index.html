@@ -18,15 +18,15 @@
         
         <h3>お知らせする種類</h3>
         
-        <form action="" method="post">
+        <form action="/admin" method="post">
             
             <div class="label">
         
                 <label><input type="radio" name="time" id="time">営業時間関係</label>
-                <label for=""><input type="radio" name="update" id="update">ホームページ更新</label><br>
-                <label for=""><input type="radio" name="add" id="add">機能追加</label>
-                <label for=""><input type="radio" name="change" id="change">機能変更</label>
-                <label for=""><input type="radio" name="del" id="del">機能削除</label>
+                <label><input type="radio" name="update" id="update">ホームページ更新</label><br>
+                <label><input type="radio" name="add" id="add">機能追加</label>
+                <label><input type="radio" name="change" id="change">機能変更</label>
+                <label><input type="radio" name="del" id="del">機能削除</label>
                 <br>
                 <label>その他：<input type="text" name="others" id="text"></label>
             </div>
@@ -36,7 +36,7 @@
                 <textarea name="info_text" id="info_text" cols="40" rows="10"></textarea>
             </div>
 
-            <!-- <p>お知らせ履歴の保存名：<input type="text" name="save" id="save"></p> -->
+            <p>お知らせ履歴の保存名：<input type="text" name="save" id="save"></p>
             <br>
             <input type="submit" value="投稿">
         </form>
