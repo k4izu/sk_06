@@ -37,9 +37,14 @@ conda install opencv
  ```
 pip install -U flask-cors
 ```
-### mysql-connector（ORM適用まで）
+### DB関連（ORM適用まで）
+-myswl-connector
 ```
 pip install mysql-connector-python
+```
+-画像処理
+```
+pip install pillow
 ```
 
 ## メンバー
