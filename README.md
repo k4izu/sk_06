@@ -26,6 +26,16 @@ AnacondaのFlaskにて動かします。
 \
 開発は現状「C:\work\group\sk_06」で行っています。
 
+## 必要なモジュール
+# mediapipe関連
+pip install mediapipe
+conda install opencv
+# flaskでCORS（Cross-Origin Resource Sharing）を有効にする
+# pythonからjsへデータへデータを送る
+pip install -U flask-cors
+# mysql-connector（ORM適用まで）
+pip install mysql-connector-python
+
 
 ## メンバー
 
