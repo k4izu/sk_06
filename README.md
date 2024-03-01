@@ -26,7 +26,7 @@ AnacondaのFlaskにて動かします。
 \
 開発は現状「C:\work\group\sk_06」で行っています。
 
-# 必要なモジュール（Flak環境の作り方はnotionに記載）
+# 必要なモジュール（Flask環境の作り方はnotionに記載）
 ### mediapipe関連
 ```
 pip install mediapipe
