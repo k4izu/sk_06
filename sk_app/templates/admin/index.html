@@ -10,8 +10,8 @@
     
 <div class="main">
     <div class="mail">
-        <h3>問い合わせメール受信数：</h3>
-        <p>件の問い合わせメールが届いています。</p>
+        <h3>問い合わせメール受信数：{{ reccnt["reccnt"] }}</h3>
+        <p>{{ reccnt["reccnt"] }}件の問い合わせメールが届いています。</p>
     </div>
 
     <div class="info">
@@ -22,7 +22,7 @@
             
             <div class="label">
         
-                <label><input type="radio" name="time" id="time">営業時間関係</label>
+                <label><input type="radio" name="time" id="time">営業時間</label>
                 <label><input type="radio" name="update" id="update">ホームページ更新</label><br>
                 <label><input type="radio" name="add" id="add">機能追加</label>
                 <label><input type="radio" name="change" id="change">機能変更</label>

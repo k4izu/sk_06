@@ -1,13 +1,8 @@
 from sk_app.apps import app
 from sk_app.sql_functions import DbOp
 import sk_app.users_functions as functions
-from flask import render_template,Blueprint,redirect
+from flask import render_template,Blueprint,redirect,request
 import mysql.connector
-# from PIL import Image
-from werkzeug.utils import secure_filename
-import os
-from werkzeug.datastructures import ImmutableDict
-from itertools import chain
 
 admin_view=Blueprint('admin_view',__name__,url_prefix='/admin')
 users_sql_functions=Blueprint('users_sql_functions',__name__)
@@ -19,19 +14,55 @@ admin = "admin/"
 @app.route('/adminlogin')
 def login():
 
-    # IDとパスワード参照後、 １ だったら admin/index.html へ
+    login = {}
+    
+    return render_template(admin + 'login.html',login=login)
 
-
-    return render_template(admin + 'login.html')
 
 #「/admin」へアクセスがあった場合に、「admin/index.html」へ
 @app.route("/admin")
 def admin_index():
 
+    # id = request.form["id"]
+    # password = request.form["password"]
     
+    # sql = "SELECT id , password FROM admins WHERE'" + id + "'and'" + password + "';"
+    
+    # try:
+    # # ====== モデルデータ抽出
+    #     dbop=DbOp('admins')
+    #     result=dbop.selectEx(sql)
+    #     dbop.close()
+    #     print(result)
+    # except mysql.connector.errors.ProgrammingError as e:
+    #     print('***DB接続エラー***')        #===pass間違いなど
+    #     print(type(e))  #===例外名出力
+    #     print(e)        #===例外内容出力
+    # except Exception as e:
+    #     print('***システム運行プログラムエラー***') #===未知のエラー
+    #     print(type(e))  #===例外名出力
+    #     print(e)        #===例外内容出力 
 
-    return render_template(admin + "index.html")
 
+    # 受信したメール件数表示するための配列格納
+    reccnt={}
+
+    try:
+    # ====== モデルデータ抽出
+        dbop=DbOp('inquiries')
+        reccnt=dbop.selectCnt()
+        dbop.close()
+        print(reccnt)
+    except mysql.connector.errors.ProgrammingError as e:
+        print('***DB接続エラー***')        #===pass間違いなど
+        print(type(e))  #===例外名出力
+        print(e)        #===例外内容出力
+    except Exception as e:
+        print('***システム運行プログラムエラー***') #===未知のエラー
+        print(type(e))  #===例外名出力
+        print(e)        #===例外内容出力 
+
+    return render_template(admin + "index.html",reccnt=reccnt)
 
 # userdata（IDやパスワードなど）の全件抽出
 @app.route('/user_data')
@@ -83,6 +114,30 @@ def user_devices():
         print(e)        #===例外内容出力    
 
     return render_template(admin + 'user_devices.html')
+
+@app.route("/mail")
+def mail():
+
+    # 受信したメール件数表示するための配列格納
+    reccnt={}
+
+    try:
+    # ====== モデルデータ抽出
+        dbop=DbOp('inquiries')
+        result=dbop.selectAll()
+        reccnt=dbop.selectCnt()
+        dbop.close()
+        print(reccnt)
+    except mysql.connector.errors.ProgrammingError as e:
+        print('***DB接続エラー***')        #===pass間違いなど
+        print(type(e))  #===例外名出力
+        print(e)        #===例外内容出力
+    except Exception as e:
+        print('***システム運行プログラムエラー***') #===未知のエラー
+        print(type(e))  #===例外名出力
+        print(e)        #===例外内容出力 
+
+    return render_template(admin + "mail.html",reccnt=reccnt,result=result)
 
 
 # データベース接続関係
