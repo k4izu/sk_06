@@ -274,3 +274,20 @@ class DbOp:
         # ===== DB切断
         def close(self):
             self.__con.close()                      #===DB CLOSE
+
+# errorページ
+@app.errorhandler(404)
+def error404(error):
+    errmsg = {
+        "msg1":"HTTPステータスcode:" + str(error.code),
+        "msg2":"指定されたページが見つかりません"
+    }
+    return render_template('error.html',errmsg=errmsg),404
+
+@app.errorhandler(500)
+def error500(error):
+    errmsg = {
+        "msg1":"HTTPステータスcode" + str(error.code),
+        "msg2":"内部サーバーエラー"
+    }
+    return render_template('error.html',errmsg=errmsg),500

@@ -1,0 +1,10 @@
+{% extends 'base_admin.html' %}
+
+{% block title %}エラー画面{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block main %}
+    <h1>{{ errmsg.msg1 }}</h1>
+    <h2>{{ errmsg.msg2 }}</h2>
+{% endblock %}
