@@ -466,6 +466,219 @@ input[type=text] {
   margin: 0 7%;
 }
 
+#projectionWrapper {
+  margin: 2%;
+  overflow: hidden;
+}
+#projectionWrapper .projectionTitle {
+  font-weight: 600;
+}
+#projectionWrapper .mT2 {
+  text-align: center;
+}
+#projectionWrapper .projectionMain {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5% 10%;
+  border-collapse: collapse;
+}
+#projectionWrapper .projectionMain .projectionBox {
+  width: 45%;
+  min-height: 25vh;
+  border-top: 5px solid #beb4a4;
+  margin: 1%;
+  background-color: #ece8e3;
+  display: flex;
+  flex-wrap: wrap;
+}
+#projectionWrapper .projectionMain .projectionBox .projectionBoxImg {
+  width: 44%;
+  margin: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#projectionWrapper .projectionMain .projectionBox .projectionBoxImg p img {
+  max-width: 100%;
+}
+#projectionWrapper .projectionMain .projectionBox .projectionBoxMain {
+  width: 40%;
+  margin: 5%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#projectionWrapper .projectionMain .projectionBox .projectionBoxMain .projectionBoxTitle {
+  width: 100%;
+}
+#projectionWrapper .projectionMain .projectionBox .projectionBoxMain .projectionBoxTitle h3 {
+  border-bottom: solid 1px #000000;
+}
+#projectionWrapper .projectionMain .projectionBox .projectionBoxMain .projectionBoxButton {
+  width: 100%;
+}
+#projectionWrapper .projectionMain .projectionBox .projectionBoxMain .projectionBoxButton div {
+  width: 100%;
+}
+#projectionWrapper .projectionMain .projectionBox .projectionBoxMain .projectionBoxButton div button {
+  width: 100%;
+  display: block;
+  border: solid 1px #000000;
+  margin: 5% 0;
+}
+#projectionWrapper .projectionMain .projectionBox .popup {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  background: black;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#projectionWrapper .projectionMain .projectionBox .content {
+  background: #fff;
+  padding: 30px;
+  width: 50%;
+}
+#projectionWrapper .projectionMain .projectionBox .show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#projectionWrapper .projectionMain .projectionDetailMain {
+  background-color: #ece8e3;
+  display: flex;
+}
+#projectionWrapper .projectionMain .projectionDetailMain .projectionDetailImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin: 5%;
+}
+#projectionWrapper .projectionMain .projectionDetailMain .projectionDetailImg p img {
+  max-width: 100%;
+  max-height: 100%;
+}
+#projectionWrapper .projectionMain .projectionDetailMain .projectionDetailText {
+  width: 40%;
+  margin: 5%;
+}
+#projectionWrapper .projectionMain .projectionDetailMain .projectionDetailText .projectionDetailTitle h3 {
+  font-weight: 600;
+  border-bottom: solid 1px #000000;
+  font-size: 1.8rem;
+}
+#projectionWrapper .projectionMain .projectionDetailMain .projectionDetailText .projectionDetailInfo p {
+  margin: 4% 3%;
+}
+#projectionWrapper .projectionMain .projectionText {
+  margin: 1%;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ff0000;
+}
+#projectionWrapper .projectionMain .projectionButtonBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#projectionWrapper .projectionMain .projectionButtonBox .projectionButton {
+  margin-top: 3%;
+}
+#projectionWrapper .projectionMain .projectionButtonBox .projectionButton p a {
+  height: 6vh;
+  border: solid 1px #000000;
+  background-color: #86a2b8;
+  color: #e4e4e4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10%;
+  font-size: 1.8rem;
+}
+#projectionWrapper .projectionMain .projectionButtonBox .projectionButton p a:hover {
+  background-color: #63747d;
+  color: #c7c7c7;
+}
+#projectionWrapper .modelAddButton {
+  margin-top: 3%;
+}
+#projectionWrapper .modelAddButton p a {
+  border: solid 1px #000000;
+  background-color: #99BA7E;
+  color: #e4e4e4;
+}
+#projectionWrapper .modelAddButton p a:hover {
+  background-color: #738d5e;
+  color: #c7c7c7;
+}
+#projectionWrapper .modelAddButton button {
+  border: solid 1px #000000;
+  background-color: #99BA7E;
+  color: #e4e4e4;
+}
+#projectionWrapper .modelAddButton button:hover {
+  background-color: #738d5e;
+  color: #c7c7c7;
+}
+#projectionWrapper .projectionMainButton, #projectionWrapper .projectionButtonDetail, #projectionWrapper .projectionButtonMain {
+  margin-top: 3%;
+}
+#projectionWrapper .projectionMainButton p a, #projectionWrapper .projectionButtonDetail p a, #projectionWrapper .projectionButtonMain p a {
+  border: solid 1px #000000;
+  background-color: #afa177;
+  color: #e4e4e4;
+}
+#projectionWrapper .projectionMainButton p a:hover, #projectionWrapper .projectionButtonDetail p a:hover, #projectionWrapper .projectionButtonMain p a:hover {
+  background-color: #544d3a;
+  color: #c7c7c7;
+}
+#projectionWrapper .projectionButtonDelete {
+  margin-top: 3%;
+}
+#projectionWrapper .projectionButtonDelete p a {
+  border: solid 1px #000000;
+  background-color: #b95454;
+  color: #e4e4e4;
+}
+#projectionWrapper .projectionButtonDelete p a:hover {
+  background-color: #763e3e;
+  color: #c7c7c7;
+}
+#projectionWrapper .projectionForm {
+  width: 100%;
+}
+#projectionWrapper .projectionForm .projectionText {
+  text-align: center;
+  margin: 2%;
+}
+#projectionWrapper .projectionForm .projectionText div {
+  display: flex;
+  flex-wrap: wrap;
+  height: 8vh;
+  align-items: center;
+  margin: 3% 10%;
+}
+#projectionWrapper .projectionForm .projectionText div a {
+  margin: 0 0 0 auto;
+  padding: 1vh;
+}
+#projectionWrapper .projectionForm .projectionText div p {
+  width: 40%;
+  justify-content: center;
+}
+#projectionWrapper .projectionForm .projectionText div input[type=text] {
+  border: solid 1px #000000;
+}
+#projectionWrapper .projectionForm .projectionText div input {
+  border-radius: 1rem;
+  width: 40%;
+  padding: 0.25% 3%;
+  text-align: left;
+  margin: 0 7%;
+}
+
 #settingsWrapper {
   margin-top: 3%;
 }

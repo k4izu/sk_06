@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+		</style>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://unpkg.com/three@0.142.0/build/three.module.js",
+                    "OrbitControls": "https://unpkg.com/three@0.142.0/examples/jsm/controls/OrbitControls.js",
+                    "three/addons/": "https://unpkg.com/three@0.152.2/examples/jsm/",
+					"tween": "https://unpkg.com/@tweenjs/tween.js@18.6.4/src/Tween.js"
+                }
+            }
+         </script>
+	</head>
+	<body>
+		<script type="module">
+			import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+		</script>
+	</body>
+	<script src="{{ url_for('static', filename='/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/script.js') }}" type="module"></script>
+</html>
