@@ -14,14 +14,15 @@
 <hr>
 <div class="inmail">
     {% for rec in result %}
+    
+            <h3>問い合わせID：{{ rec["id"] }}</h3>
+            <p>送信者ユーザID：{{ rec["user_id"] }}</p>
+            <p>送信時間：{{ rec["created_at"] }}</p>
+            <p>問い合わせ目的：{{ rec["title"] }}</p>
+            <dev class="text">
+                <p>内容：{{ rec["text"] }}</p>
+            </dev>
 
-        <h3>問い合わせID：{{ rec["id"] }}</h3>
-        <p>送信者ユーザID：{{ rec["user_id"] }}</p>
-        <p>送信時間：{{ rec["created_at"] }}</p>
-        <p>問い合わせ内容：{{ rec["title"] }}</p>
-        <dev class="text">
-            <p>{{ rec["text"] }}</p>
-        </dev>
         <hr>
     {% endfor %}
 </div>
