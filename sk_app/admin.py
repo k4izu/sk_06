@@ -115,6 +115,8 @@ def user_devices():
 
     return render_template(admin + 'user_devices.html')
 
+
+# 受診したメールの一覧表示場所
 @app.route("/mail")
 def mail():
 
