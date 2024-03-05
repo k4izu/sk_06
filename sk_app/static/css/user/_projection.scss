@@ -6,7 +6,7 @@
     .projectionTitle{
         font-weight: $bold;
     }
-    .mT2{
+    .pT2{
         text-align: center;
     }
     .projectionMain{
@@ -146,6 +146,14 @@
                         }
                     }
                 }
+            }
+        }
+        .projectionText{
+            margin: 10%;
+            width: 100%;
+            h3{
+                text-align: center;
+                color: #000000;
             }
         }
     }

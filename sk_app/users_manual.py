@@ -19,4 +19,8 @@ err_msg={}
 # ==========================================================
 @app.route("/manual")
 def manual():
-    return render_template(user+"manual.html")
+    # === sessionが無ければloginページへ
+    user_data=functions.session_check()
+    if user_data=="FALSE":
+        return redirect('/login')
+    return render_template(user+"manual.html",user_data=user_data)

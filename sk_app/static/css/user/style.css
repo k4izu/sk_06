@@ -473,7 +473,7 @@ input[type=text] {
 #projectionWrapper .projectionTitle {
   font-weight: 600;
 }
-#projectionWrapper .mT2 {
+#projectionWrapper .pT2 {
   text-align: center;
 }
 #projectionWrapper .projectionMain {
@@ -600,6 +600,14 @@ input[type=text] {
 #projectionWrapper .projectionMain .projectionButtonBox .projectionButton p a:hover {
   background-color: #63747d;
   color: #c7c7c7;
+}
+#projectionWrapper .projectionMain .projectionText {
+  margin: 10%;
+  width: 100%;
+}
+#projectionWrapper .projectionMain .projectionText h3 {
+  text-align: center;
+  color: #000000;
 }
 #projectionWrapper .modelAddButton {
   margin-top: 3%;

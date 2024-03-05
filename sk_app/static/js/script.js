@@ -42,6 +42,8 @@ scene.add(leftLight);
 // scene.add(bottomLight);
 
 
+window.location.href='/projection/models'
+
 // Ajaxリクエストを作成し、データを受信
 $.ajax({
     // pythonからデータを受け取る
@@ -59,35 +61,48 @@ $.ajax({
             models.rotation.z = Math.PI / 2;
             // モデルを少し横に移動させる
             models.position.x = 0.5;
-            // Ajaxリクエストを作成し、データを受信
-            $.ajax({
-                // pythonからデータを受け取る
-                type: 'GET',
-                url: '/mediapipe_data',
-                success: function(response) {
-                    console.log(response);
-                    if (response.key1=="OK") {
-                        // OKであれば回転１
-                        rotateModel1();
-                    }else if (data.mediapipe_data=="FALSE"){
-                        // FALSEであれば回転2
-                        rotateModel2();
-                    }
-                }
-            });
-                
+            function csv_get (){
+                fetch('/get_csv')
+                    .then(response => response.text())
+                    .then(csvText => {
+                        // CSVテキストを行に分割
+                        const rows = csvText.split('\n');
+                        // 最後の行を取得
+                        const lastRow = rows[rows.length - 2].trim();;
+                        console.log(lastRow);
+                        if (lastRow==="swipe") {
+                            rotateModel1();
+                            // if (models.rotation.x>=-12){
+                            // }
+                            console.log(models.rotation.x);
+                        }else if (lastRow==="zoomup"){
+                            console.log("拡大");
+                            animationFrameId = requestAnimationFrame(scaleModel);
+                        }else if (lastRow==="zoomout"){
+                            console.log("縮小");
+                            animationFrameId = requestAnimationFrame(scaleDownModel);
+                        }else{
+                            stopAnimation();
+                        }
+                    })
+                    .catch(error => console.error('Error fetching CSV:', error));
+            }
+        
+            csv_get();
+            // // 5秒ごとに最新データを取得する
+            setInterval(csv_get, 200);
         
             // マウスクリック時に押下した方向にモデルを回転
             document.addEventListener('mousedown', onMouseEvent, false);
             function onMouseEvent(event){
-                if (mouse>=window.innerWidth/2){
-                    rotateModel1();// 回転
+                window.location.href='/projection/comp';// エンドポイント呼び出し
+                // if (mouse>=window.innerWidth/2){
+                    // rotateModel1();// 回転
                     // scaleUp();// 拡大
-                }else{
-                    rotateModel2();// 回転
+                // }else{
+                    // rotateModel2();// 回転
                     // scaleDown();// 縮小
-                    window.location.href='/projection';// エンドポイント呼び出し（ページ遷移用）
-                }
+                // }
             }
         
             // マウスを離したら
@@ -96,11 +111,26 @@ $.ajax({
                 stopAnimation();
             }
             let animationFrameId;
-            // モデルを回転させる関数
+        
+        
+            // 回転速度の初期値
+            let currentRotationSpeed = 0;
+            // 目標の回転速度
+            const targetRotationSpeed = 0.005;
+            // 加速度
+            const acceleration = 0.0001;
+            // 減速度
+            const deceleration = 0.00005;
             function rotateModel1() {
-                // モデルのy軸を中心に回転
-                models.rotation.x += -0.01;
-                // モデルを再描画
+                // 目標の回転速度に向かって現在の回転速度を変更
+                if (currentRotationSpeed < targetRotationSpeed) {
+                    // 加速
+                    currentRotationSpeed += acceleration;
+                } else if (currentRotationSpeed > targetRotationSpeed) {
+                    // 減速
+                    currentRotationSpeed -= deceleration;
+                }
+                models.rotation.x -= currentRotationSpeed;
                 renderer.render(scene, camera);
                 // アニメーションを繰り返し実行
                 animationFrameId = requestAnimationFrame(rotateModel1);
@@ -117,6 +147,47 @@ $.ajax({
                 cancelAnimationFrame(animationId);
             }
             let animationId
+            // 拡大率の初期値、拡大率、拡大の速度、拡大ライン
+            let currentScale = 1;
+            const targetScale = 2;
+            const scaleSpeed = 0.01;
+            const stopScale = 1.8;
+            function scaleModel() {
+                // 目標の拡大率に向かって現在の拡大率を変更
+                if (currentScale < targetScale && currentScale < stopScale) {
+                    // 拡大
+                    currentScale += scaleSpeed;
+                }
+                // モデルの拡大率を設定
+                models.scale.set(currentScale, currentScale, currentScale);
+                renderer.render(scene, camera);
+                // 目標の拡大率に達したらアニメーションを停止
+                if (currentScale >= targetScale || currentScale >= stopScale) {
+                    cancelAnimationFrame(animationFrameId);
+                    return;
+                }
+                animationFrameId = requestAnimationFrame(scaleModel);
+            }
+            // 縮小率の初期値、目標の縮小率、縮小速度、縮小ライン
+            let currentScaleDown = 1;
+            const targetScaleDown = 0.5;
+            const scaleSpeedDown = 0.01;
+            const stopScaleDown = 0.7;
+            function scaleDownModel() {
+                // 目標の縮小率に向かって現在の縮小率を変更
+                if (currentScaleDown > targetScaleDown && currentScaleDown > stopScaleDown) {
+                    currentScaleDown -= scaleSpeedDown;
+                }
+                // モデルの縮小率を設定
+                models.scale.set(currentScaleDown, currentScaleDown, currentScaleDown);
+                renderer.render(scene, camera);
+                // 目標の縮小率に達したらアニメーションを停止
+                if (currentScaleDown <= targetScaleDown || currentScaleDown <= stopScaleDown) {
+                    cancelAnimationFrame(animationFrameId);
+                    return;
+                }
+                animationFrameId = requestAnimationFrame(scaleDownModel);
+            }
             // 拡大する関数
             function scaleUp(event) {   
                 // フレームごとに実行される関数
@@ -143,7 +214,7 @@ $.ajax({
                     animationId = requestAnimationFrame(render);
                 }
                 render()
-            }
+            }        
         }, undefined, function (error) {
             console.error(error);
         }); 

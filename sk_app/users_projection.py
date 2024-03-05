@@ -1,7 +1,8 @@
 from sk_app.apps import app
 from sk_app.sql_functions import DbOp
 import sk_app.users_functions as functions
-from flask import render_template,Blueprint,request,redirect,jsonify,session
+from flask import render_template,Blueprint,request,redirect,jsonify,session,send_file
+import subprocess
 import mysql.connector
 from flask_cors import CORS
 
@@ -43,7 +44,7 @@ def projection():
         dbop.close()
         print(model_data)
         # ===== users_model.htmlへ
-        return render_template(user+'projection.html',model_data=model_data,vtbl=vtbl)
+        return render_template(user+'projection.html',model_data=model_data,vtbl=vtbl,user_data=user_data)
     except mysql.connector.errors.ProgrammingError as e:
         print('***DB接続エラー***')        #===pass間違いなど
         print(type(e))  #===例外名出力
@@ -64,8 +65,6 @@ def projection_id(id):
     user_data=functions.session_check()
     if user_data=="FALSE":
         return redirect('/login')
-    print(user_data["user_id"])
-    print(id)
     # === user_idで登録されているmodelを抽出
     sql=f'user_id = "{user_data["user_id"]}" AND id = "{id}"'
     try:
@@ -74,6 +73,7 @@ def projection_id(id):
         model_data=dbop.selectEx(sql)
         dbop.close()
         print(model_data)
+        # ==== session登録（js引き渡し用）
         session["projection_model"]=model_data[0]["model_file_name"]
         # ===== projection.htmlへ
         return render_template(user+'projection_model.html',model_data=model_data,vtbl=vtbl)
@@ -86,25 +86,54 @@ def projection_id(id):
         print(type(e))  #===例外名出力
         print(e)        #===例外内容出力
 
+from mediapipe.python.solutions import hands
+# ==========================================================
+#   投影終了              ('/projection/comp')
+# ==========================================================
+@app.route("/projection/comp",methods=["get"])
+def projection_comp():
+    # === sessionが無ければloginページへ
+    user_data=functions.session_check()
+    if user_data=="FALSE":
+        return redirect('/login')
+    subprocess.Popen(["python", "camera.py"]).terminate()
 
-# データ引き渡し用
+    # # 実行中のプロセスを取得
+    # process = subprocess.Popen(["python", "camera.py"])
+    # # プロセスIDを取得
+    # pid = process.pid
+    # # プロセスを終了
+    # subprocess.run(["kill", str(pid)])
+
+    # solution = hands.Hands()
+    # solution.close()
+    return render_template(user+"projection_comp.html",user_data=user_data)
+
+
+# ==========================================================
+#   以下opencv用             
+# ==========================================================
+# モデルファイル取得
 @app.route('/model_data')
 def model_data():
     data=session["projection_model"]
     print(data)
     return jsonify(data)
 
-# データ引き渡し用
-@app.route('/mediapipe_data')
-def mediapipe_data():
-    # データを作成
-    data = {
-        'key1': 'OK',
-        'key2': 'value2'
-    }
-    return jsonify(data)
+# csvファイル取得（staticに入れなくて良い）
+@app.route('/get_csv')
+def get_csv():
+    return send_file('../share.csv')
+
+# mediapipe呼び出し
+@app.route('/projection/models')
+def run_test():
+    try:
+        subprocess.run(["python", "./sk_app/camera.py"])
+    except Exception as e:
+        return str(e)
 
 # === 退避
-@app.route("/break/page",methods=["get"])
-def break_page():
-    return render_template('test02.html')
+# @app.route("/break/page",methods=["get"])
+# def break_page():
+#     return render_template('test02.html')
