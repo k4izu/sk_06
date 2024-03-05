@@ -24,9 +24,23 @@ def session_check():
         res="FALSE"
     return res
 
+# 拡張子チェック（img）
+def extension_check_img(filename):
+    Extencion=['jpg','png','jpeg']
+    ex_result = False
+    if "." in filename:
+        # === 文字列分割で配列化し、拡張子取り出し
+        ext = filename.rsplit('.',1)[1]
+        # === 小文字に変換
+        ext=ext.lower()
+        if ext in Extencion:
+            # === 許可された演算子ならばTrueで返す
+            ex_result = True
+    return ex_result
+
 # 拡張子チェック（モデル）
 def extension_check_model(filename):
-    Extencion=['jpg','png']
+    Extencion=['glb']
     ex_result = False
     if "." in filename:
         # === 文字列分割で配列化し、拡張子取り出し

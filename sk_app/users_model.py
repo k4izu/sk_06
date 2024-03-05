@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 import os
 
 users_model_view=Blueprint('users_model_view',__name__)
-app.config['MAX_CONTENT_LENGTH']=2*1024*1024
+app.config['MAX_CONTENT_LENGTH']=10*1024*1024
 
 # パスの設定
 user = "user/"
@@ -44,7 +44,7 @@ def model():
         dbop.close()
         print(model_data)
         # ===== users_model.htmlへ
-        return render_template(user+'model.html',model_data=model_data,vtbl=vtbl)
+        return render_template(user+'model.html',model_data=model_data,vtbl=vtbl,user_data=user_data)
     except mysql.connector.errors.ProgrammingError as e:
         print('***DB接続エラー***')        #===pass間違いなど
         print(type(e))  #===例外名出力
@@ -78,7 +78,7 @@ def model_detail(id):
         dbop.close()
         print(model_data)
         # ===== users_model.htmlへ
-        return render_template(user+'model_detail.html',model_data=model_data,vtbl=vtbl)
+        return render_template(user+'model_detail.html',model_data=model_data,vtbl=vtbl,user_data=user_data)
     except mysql.connector.errors.ProgrammingError as e:
         print('***DB接続エラー***')        #===pass間違いなど
         print(type(e))  #===例外名出力
@@ -90,7 +90,7 @@ def model_detail(id):
 
 
 # ==========================================================
-#   モデル削除              ('/model/delete/<scode>')
+#   モデル削除確認              ('/model/delete/<scode>')
 # ==========================================================
 @app.route("/model/delete/<id>",methods=["get"])
 def model_delete(id):
@@ -112,7 +112,7 @@ def model_delete(id):
         model_data=dbop.selectEx(sql)
         dbop.close()
         # ===== users_model.htmlへ
-        return render_template(user+'model_delete.html',model_data=model_data,vtbl=vtbl)
+        return render_template(user+'model_delete.html',model_data=model_data,vtbl=vtbl,user_data=user_data)
     except mysql.connector.errors.ProgrammingError as e:
         print('***DB接続エラー***')        #===pass間違いなど
         print(type(e))  #===例外名出力
@@ -161,10 +161,10 @@ def model_add():
     user_data=functions.session_check()
     if user_data=="FALSE":
         return redirect('/login')
-    return render_template(user+'model_add.html',err_msg=err_msg,model_form=model_form)
+    return render_template(user+'model_add.html',err_msg=err_msg,model_form=model_form,user_data=user_data)
 
 # ==========================================================
-#   モデル追加              ('/model/add/comp')
+#   モデル追加完了              ('/model/add/comp')
 # ==========================================================
 @app.route("/model/add/comp",methods=["post"])
 def model_add_comp():
@@ -210,9 +210,18 @@ def model_add_comp():
     if not filenameMI:
         flg = 1
         err_msg["model_image"]="モデル画像が選択されていません"
+    # === ファイルチェック関数呼び出し
+    ex_result01=functions.extension_check_model(filenameMF)
+    ex_result02=functions.extension_check_img(filenameMI)
+    if ex_result01 == False:
+        flg = 1
+        err_msg["model_file_name"]="glbの拡張子で登録してください"
+    if  ex_result02 == False:
+        flg = 1
+        err_msg["model_img"]="jpg,jpeg,pngの拡張子で登録してください"
     # ===== 入力漏れが合った場合は再び"model_add.html"へ
     if flg != 0:
-        return render_template(user + "model_add.html",err_msg=err_msg, model_form=model_form)
+        return render_template(user + "model_add.html",err_msg=err_msg, model_form=model_form,user_data=user_data)
     
     # ===日付情報取得
     savedate=datetime.now().strftime("%Y%m%d_%H%M%S_")
@@ -259,4 +268,4 @@ def model_add_comp():
         print(type(e))  #===例外名出力
         print(e)        #===例外内容出力
     print(sql1,sql2)
-    return render_template(user+'model_add_comp.html')
+    return render_template(user+'model_add_comp.html',user_data=user_data)

@@ -1,5 +1,47 @@
 {% extends "base_user.html" %}
 {% block title %}投影{% endblock %}
 {% block content %}
-
+<div id="projectionWrapper">
+    <div class="projectionTitle">
+        <h2>3Dモデル一覧</h2>
+    </div>
+    {% if not model_data %}
+    <div class="projectionMain">
+        <p>modelは登録されていません</p>
+    </div>
+    <div class="projectionAddButton buttonBoxB">
+        <div class="modelAddButton">
+            <p><a href="/model/add">登録</a></p>
+        </div>
+    </div>
+    {% else %}
+    <div class="projectionMain">
+    {% for rec in model_data  %}
+        <div class="projectionBox">
+            <div class="projectionBoxImg">
+                <p><img src='static/uploads/img/{{rec["model_image"]}}' alt=""></p>
+            </div>
+            <div class="projectionBoxMain">
+                <div class="projectionBoxTitle">
+                    <h3>{{rec["name"]}}</h3>
+                </div>
+                <div class="projectionBoxButton">
+                    <div class="projectionButtonDetail buttonBoxC">
+                        <p><a href="http://127.0.0.1:5000/model/detail/{{ rec['id'] }}">詳細</a></p>
+                    </div>
+                    <div class="projectionButtonDelete buttonBoxC">
+                        <p><a href="http://127.0.0.1:5000/model/delete/{{ rec['id'] }}">削除</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="projectionButtonBox buttonBoxB">
+            <div class="projectionButton">
+                <p><a href="projection/{{rec['id']}}">投影</a></p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+</div>
 {% endblock %}
